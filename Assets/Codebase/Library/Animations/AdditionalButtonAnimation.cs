@@ -1,5 +1,5 @@
 using System;
-using Codebase.Extension;
+using Codebase.Library.Extension;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;

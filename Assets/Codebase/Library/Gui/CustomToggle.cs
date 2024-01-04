@@ -1,7 +1,7 @@
 using System;
 using ACS.Core;
 using ACS.SignalBus.SignalBus;
-using Codebase.Extension;
+using Codebase.Library.Extension;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;

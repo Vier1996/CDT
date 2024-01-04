@@ -1,7 +1,7 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 
-namespace Codebase.Extension
+namespace Codebase.Library.Extension
 {
     public static class TweenExtensions
     {

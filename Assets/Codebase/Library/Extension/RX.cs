@@ -2,7 +2,9 @@ using System;
 using UniRx;
 using UnityEngine;
 
-public static class RX
+namespace Codebase.Library.Extension
+{
+    public static class RX
     {
         public static IDisposable LoopedTimer(float initialDelay, float interval, Action callback) =>
             Observable
@@ -84,3 +86,4 @@ public static class RX
                 };
             });
     }
+}

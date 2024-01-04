@@ -3,7 +3,7 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Codebase.Extension
+namespace Codebase.Library.Extension
 {
     public static class Navigation
     {

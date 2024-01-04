@@ -1,4 +1,4 @@
-using Codebase.Extension;
+using Codebase.Library.Extension;
 using DG.Tweening;
 using MoreMountains.NiceVibrations;
 using Sirenix.OdinInspector;

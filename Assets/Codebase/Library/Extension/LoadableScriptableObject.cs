@@ -2,7 +2,7 @@ using System.IO;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Codebase.Extension
+namespace Codebase.Library.Extension
 {
     public abstract class LoadableScriptableObject<T> : SerializedScriptableObject where T : SerializedScriptableObject
     {

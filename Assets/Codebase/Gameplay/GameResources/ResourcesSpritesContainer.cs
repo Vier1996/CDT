@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Codebase.Extension;
 using Codebase.Gameplay.Enums;
+using Codebase.Library.Extension;
 using UnityEngine;
 
 namespace Codebase.Gameplay.GameResources

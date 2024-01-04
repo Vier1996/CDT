@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 
-namespace Codebase.Extension.Reflection
+namespace Codebase.Library.Extension.Reflection
 {
     public static class AttributeExtension
     {

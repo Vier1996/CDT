@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
 
-namespace Codebase.Extension
+namespace Codebase.Library.Extension
 {
     public static class TextExtension
     {
