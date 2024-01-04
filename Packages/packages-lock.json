@@ -1,5 +1,49 @@
 {
   "dependencies": {
+    "com.alexplay.core": {
+      "version": "https://github.com/Vier1996/CoreServices.git?path=Packages/com.alexplay.core",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "e596d485e4bb8b6a6f4712f13ffa7a17c132a06e"
+    },
+    "com.alexplay.data": {
+      "version": "https://github.com/Vier1996/CoreServices.git?path=Packages/com.alexplay.data",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "e596d485e4bb8b6a6f4712f13ffa7a17c132a06e"
+    },
+    "com.alexplay.dialog": {
+      "version": "https://github.com/Vier1996/CoreServices.git?path=Packages/com.alexplay.dialog",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "e596d485e4bb8b6a6f4712f13ffa7a17c132a06e"
+    },
+    "com.alexplay.signal_bus": {
+      "version": "https://github.com/Vier1996/CoreServices.git?path=Packages/com.alexplay.signal-bus",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "e596d485e4bb8b6a6f4712f13ffa7a17c132a06e"
+    },
+    "com.cysharp.unitask": {
+      "version": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "5cc97c7f0085624b6ef57853d70b404440060cef"
+    },
+    "com.unity.ai.navigation": {
+      "version": "1.0.0-exp.4",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.ai": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.collab-proxy": {
       "version": "2.0.5",
       "depth": 0,

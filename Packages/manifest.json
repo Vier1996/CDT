@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "com.alexplay.core": "https://github.com/Vier1996/CoreServices.git?path=Packages/com.alexplay.core",
+    "com.alexplay.data": "https://github.com/Vier1996/CoreServices.git?path=Packages/com.alexplay.data",
+    "com.alexplay.dialog": "https://github.com/Vier1996/CoreServices.git?path=Packages/com.alexplay.dialog",
+    "com.alexplay.signal_bus": "https://github.com/Vier1996/CoreServices.git?path=Packages/com.alexplay.signal-bus",
+    "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
+    "com.unity.ai.navigation": "1.0.0-exp.4",
     "com.unity.collab-proxy": "2.0.5",
     "com.unity.feature.development": "1.0.1",
     "com.unity.ide.rider": "3.0.24",
