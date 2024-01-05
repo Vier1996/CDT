@@ -10,7 +10,7 @@ namespace Codebase.Library.SAD
         private EntityComponents _components = new DefaultEntityComponents();
         protected EntityWorld _entityWorld;
         
-        public virtual void InitializeEntity(EntityComponents components)
+        public virtual void InitializeEntity(EntityComponents components = null)
         {
             if(components != null)
                 _components = components.Declare(this);
