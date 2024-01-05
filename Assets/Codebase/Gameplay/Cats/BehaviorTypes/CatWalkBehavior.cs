@@ -1,13 +1,15 @@
-﻿namespace Codebase.Gameplay.Cats.BehaviorTypes
+﻿using Codebase.Library.Behaviors;
+
+namespace Codebase.Gameplay.Cats.BehaviorTypes
 {
     public class CatWalkBehavior : CatBehaviorState
     {
-        public CatWalkBehavior() : base()
+        public CatWalkBehavior(CatComponents catComponents) : base(catComponents)
         {
             
         }
         
-        public override void Enter()
+        public override void Enter(BehaviorComponents behaviorComponents = null)
         {
         }
         

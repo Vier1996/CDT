@@ -6,8 +6,12 @@ namespace Codebase.Gameplay.Workplaces
     public abstract class Workplace : MonoBehaviour
     {
         public bool IsAvailable => !_isBusy;
+        public Transform Origin => _origin;
+        public Transform WorkplaceStandingTransform => _workplaceStandingTransform;
         
         [SerializeField] protected string _workplaceId;
+        [SerializeField] protected Transform _origin;
+        [SerializeField] protected Transform _workplaceStandingTransform;
 
         protected Worker _currentWorker;
         
@@ -31,7 +35,7 @@ namespace Codebase.Gameplay.Workplaces
 
             return this;
         }
-
+        
         protected abstract void Work(float workDuration);
     }
 }

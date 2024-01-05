@@ -2,7 +2,7 @@
 {
     public interface IBehavior
     {
-        public void Enter();
+        public void Enter(BehaviorComponents behaviorComponents = null);
         
         public void Exit();
     }
