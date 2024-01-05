@@ -14,7 +14,7 @@ namespace Codebase.Gameplay.Cats
 
         public void Start()
         {
-            BindComponents(EntityComponents);
+            InitializeEntity(EntityComponents);
             
             InitializeStates();
         }

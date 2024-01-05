@@ -5,7 +5,7 @@ namespace Codebase.Library.Behaviors
 {
     public class BehaviorMachine
     {
-        private Dictionary<Type, IBehavior> _behaviorStates = new Dictionary<Type, IBehavior>();
+        private readonly Dictionary<Type, IBehavior> _behaviorStates = new Dictionary<Type, IBehavior>();
         private IBehavior _currentBehaviorState;
 
         public BehaviorMachine AppendBehavior(Type behaviorType, IBehavior behavior)

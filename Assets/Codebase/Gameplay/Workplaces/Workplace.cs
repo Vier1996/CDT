@@ -1,9 +1,10 @@
 using Codebase.Gameplay.Workers;
+using Codebase.Library.SAD;
 using UnityEngine;
 
 namespace Codebase.Gameplay.Workplaces
 {
-    public abstract class Workplace : MonoBehaviour
+    public abstract class Workplace : Entity
     {
         public bool IsAvailable => !_isBusy;
         public Transform Origin => _origin;

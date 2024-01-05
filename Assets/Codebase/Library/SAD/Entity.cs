@@ -10,15 +10,13 @@ namespace Codebase.Library.SAD
         private EntityComponents _components = new DefaultEntityComponents();
         protected EntityWorld _entityWorld;
         
-        protected void BindComponents(EntityComponents components)
+        public virtual void InitializeEntity(EntityComponents components)
         {
-            _components = components.Declare(this);
-
+            if(components != null)
+                _components = components.Declare(this);
+            
             Transform = transform;
-        }
-
-        public virtual void Initialize()
-        {
+            
             ServiceLocator.For(this).Get(out _entityWorld);
             
             _entityWorld.AddEntity(this);
