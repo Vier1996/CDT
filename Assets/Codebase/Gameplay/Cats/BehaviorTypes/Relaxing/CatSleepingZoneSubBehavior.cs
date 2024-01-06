@@ -1,7 +1,6 @@
 using Codebase.Gameplay.Enums;
 using Codebase.Gameplay.Navigation;
 using Codebase.Gameplay.Relaxes;
-using Codebase.Library.Extension;
 using UnityEngine;
 
 namespace Codebase.Gameplay.Cats.BehaviorTypes.Relaxing
@@ -11,6 +10,7 @@ namespace Codebase.Gameplay.Cats.BehaviorTypes.Relaxing
         private SleepingZone _sleepingZone;
         private TranslateComponent _translateComponent;
         private CatAnimator _catAnimator;
+        
         public CatSleepingZoneSubBehavior(RelaxPoint relaxPoint, CatComponents catComponents) : base(relaxPoint, catComponents)
         {
             _sleepingZone = RelaxPoint as SleepingZone;
@@ -34,25 +34,22 @@ namespace Codebase.Gameplay.Cats.BehaviorTypes.Relaxing
 
         private void OnArrivedToSleepingPoint()
         {
-            _catAnimator.SetAnimation(CatAnimationType.rest_lie_to);
-
-            RX.Delay(1.5f, OnLie);
+            _catAnimator.SetAnimation(CatAnimationType.rest_lie_to, completeCallback: OnLie);
         }
         
         private void OnLie()
         {
-            _catAnimator.SetAnimation(CatAnimationType.rest_sleep_to);
-
-            RX.Delay(1.5f, OnSleep);
+            _catAnimator.SetAnimation(CatAnimationType.rest_sleep_to, completeCallback: OnSleep);
         }
         
         private void OnSleep()
         {
-            
+            _catAnimator.SetAnimation(CatAnimationType.rest_sleep_idle);
         }
 
         public override void Exit()
         {
+            _translateComponent.StopTranslate();
         }
     }
 }

@@ -26,6 +26,8 @@ namespace Codebase.Gameplay.Navigation
             _navigationDisposable = _agentOfEnenty.MoveTo(targetPosition, completeCallback: completeCallback).Subscribe();
         }
 
+        public void StopTranslate() => OnArrived();
+
         private void OnArrived()
         {
             _navigationDisposable?.Dispose();

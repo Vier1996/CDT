@@ -11,7 +11,7 @@ namespace Codebase.Gameplay.Cats
     {
         [SerializeField] private Animator _animator;
 
-        private IDisposable _disposable;
+        private IDisposable _animationDoDisposable;
         
         private Action _callback;
         private CatAnimationType _currentAnimationType;
@@ -38,8 +38,8 @@ namespace Codebase.Gameplay.Cats
 
             catAnimationType.TryGetAttribute(out CatAnimationTypeAttribute attribute);
 
-            _disposable?.Dispose();
-            _disposable = RX.Delay(attribute.AnimationLength, OnAnimationCallback);
+            _animationDoDisposable?.Dispose();
+            _animationDoDisposable = RX.Delay(attribute.AnimationLength, OnAnimationCallback);
         }
 
         [Button]
@@ -51,7 +51,7 @@ namespace Codebase.Gameplay.Cats
 
         private void OnAnimationCallback()
         {
-            _disposable?.Dispose();
+            _animationDoDisposable?.Dispose();
             _callback?.Invoke();
         }
     }
