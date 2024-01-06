@@ -19,6 +19,8 @@ namespace Codebase.Gameplay.Cats
         {
             InitializeEntity(EntityComponents);
             
+            EntityComponents.TryAdd(nameof(CatEntity), this);
+            
             InitializeStates();
         }
 
@@ -28,11 +30,20 @@ namespace Codebase.Gameplay.Cats
 
             behaviorMachine
                 .AppendBehavior(typeof(CatIdleBehavior), new CatIdleBehavior(EntityComponents))
-                //.AppendBehavior(typeof(CatWalkBehavior), new CatWalkBehavior(EntityComponents))
-                //.AppendBehavior(typeof(CatRunBehavior), new CatRunBehavior(EntityComponents))
                 .AppendBehavior(typeof(CatRelaxingBehavior), new CatRelaxingBehavior(EntityComponents))
                 .AppendBehavior(typeof(CatWorkingBehavior), new CatWorkingBehavior(EntityComponents))
                 .SwitchBehavior<CatIdleBehavior>();
+        }
+
+        [Button]
+        public void TryChangeRelaxing()
+        {
+            EntityComponents.TryGetAbstractComponent(out BehaviorMachine behaviorMachine);
+
+            behaviorMachine.SwitchBehavior<CatRelaxingBehavior>(new CatRelaxingBehaviorComponents()
+            {
+                RelaxPoint = relaxPoint
+            }, force: true);
         }
 
 #if UNITY_EDITOR
@@ -47,18 +58,6 @@ namespace Codebase.Gameplay.Cats
                 Workplace = workplace
             });
         }
-        
-        [Button]
-        private void MoveToRelax()
-        {
-            EntityComponents.TryGetAbstractComponent(out BehaviorMachine behaviorMachine);
-
-            behaviorMachine.SwitchBehavior<CatRelaxingBehavior>(new CatRelaxingBehaviorComponents()
-            {
-                RelaxPoint = relaxPoint
-            });
-        }
-        
 #endif
     }
 }

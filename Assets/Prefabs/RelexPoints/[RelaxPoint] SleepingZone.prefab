@@ -57,9 +57,9 @@ GameObject:
   - component: {fileID: 7207539085391886973}
   - component: {fileID: 7207539085391886972}
   m_Layer: 0
-  m_Name: Area
+  m_Name: Sleeping
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -90,5 +90,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd82b54add6a4512970dd85beba4ac84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _areaColor: {r: 0.44171572, g: 0, b: 1, a: 0.29803923}
+  _areaColor: {r: 0.27450982, g: 0.4666667, b: 0.79215693, a: 0.29803923}
   _areaSize: {x: 3.5, y: 0.1, z: 2.5}

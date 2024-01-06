@@ -7,6 +7,9 @@ namespace Codebase.Gameplay.Enums
         none = 0,
         
         [CatAnimationTypeAttribute(2.667f)] action_digging,
+        [CatAnimationTypeAttribute(0.633f)] action_coding_begin,
+        [CatAnimationTypeAttribute(1.5f)] action_coding_loop,
+        [CatAnimationTypeAttribute(0.467f)] action_coding_finish,
         [CatAnimationTypeAttribute(3.0f)] action_drink_down,
         [CatAnimationTypeAttribute(3.0f)] action_drink_up,
         [CatAnimationTypeAttribute(2.83f)] action_drop_l_sit,
@@ -48,7 +51,7 @@ namespace Codebase.Gameplay.Enums
         [CatAnimationTypeAttribute(2.667f)] idle_base,
         [CatAnimationTypeAttribute(3.333f)] idle_look,
         [CatAnimationTypeAttribute(6f)] idle_look_down,
-        [CatAnimationTypeAttribute(5.33f)] idle_loog_site,
+        [CatAnimationTypeAttribute(5.33f)] idle_look_site,
         [CatAnimationTypeAttribute(4.33f)] idle_stretching,
         [CatAnimationTypeAttribute(2.667f)] idle_yaw,
         

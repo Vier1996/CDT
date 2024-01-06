@@ -40,11 +40,17 @@ namespace Codebase.Gameplay.Cats.BehaviorTypes
 
         private void OnArrivedToWorkplace()
         {
-            _catAnimator.SetAnimation(CatAnimationType.idle_base);
+            _catAnimator.SetAnimation(CatAnimationType.action_coding_begin, completeCallback: OnCodingBegin);
             
             _catEntity.Transform.Normalize(_catWorkingBehaviorComponents.Workplace.Origin);
         }
-        
+
+        private void OnCodingBegin()
+        {
+            //_catWorkingBehaviorComponents.Workplace.
+            _catAnimator.SetAnimation(CatAnimationType.action_coding_loop);
+        }
+
         public override void Exit()
         {
         }

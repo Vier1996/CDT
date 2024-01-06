@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Codebase.Gameplay.Relaxes;
 using Codebase.Library.Behaviors;
 
@@ -21,6 +23,13 @@ namespace Codebase.Gameplay.Cats.BehaviorTypes.Relaxing
             {
                 case SleepingZone:
                     _currentSubBehavior = new CatSleepingZoneSubBehavior(_catRelaxingBehaviorComponents.RelaxPoint, CatComponents);
+                    break;
+                
+                case ChillingZone:
+                    Type randomChillingSubBehaviorType = RelaxingTools.RandomChillingSubBehavior;
+                    object[] args = new object[] { _catRelaxingBehaviorComponents.RelaxPoint, CatComponents };
+                    
+                    _currentSubBehavior = (CatRelaxingSubBehavior)Activator.CreateInstance(randomChillingSubBehaviorType, args: args);
                     break;
             }
 

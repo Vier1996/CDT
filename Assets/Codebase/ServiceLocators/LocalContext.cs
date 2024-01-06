@@ -1,3 +1,5 @@
+using Codebase.Gameplay.Behaviors;
+using Codebase.Gameplay.Workplaces;
 using Codebase.Library.ServiceContainer;
 
 namespace Codebase.ServiceLocators
@@ -7,6 +9,9 @@ namespace Codebase.ServiceLocators
         protected override void Bootstrap()
         {
             base.Bootstrap();
+
+            Container.Register(typeof(WorkplaceService), new WorkplaceService());
+            Container.Register(typeof(BehaviorService), new BehaviorService());
         }
     }
 }

@@ -21,5 +21,8 @@ namespace Codebase.Gameplay.Cats
 
             return this;
         }
+
+        public void TryAdd(string componentName, object component) => 
+            innerComponents.TryAdd(componentName, component);
     }
 }
