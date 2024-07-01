@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bootstrapOptions:
     _isEnabled: 0
-    FrameRateType: 0
-    TargetRate: 60
+    FrameRateType: 1
+    TargetRate: 165
     TweenersCapacity: 500
     SequencesCapacity: 125
     ScreenOrientation: 1
   _dataSettings:
-    _isEnabled: 0
+    _isEnabled: 1
     PackageURL: https://github.com/Vier1996/CoreServices.git?path=Packages/com.alexplay.data
     EnableAutoSave: 0
     AutoSaveDelay: 60
