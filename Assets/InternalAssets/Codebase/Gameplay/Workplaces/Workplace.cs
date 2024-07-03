@@ -1,28 +1,41 @@
+using System;
 using InternalAssets.Codebase.Gameplay.Workers;
-using InternalAssets.Codebase.Library.SAD;
+using InternalAssets.Codebase.Library.MonoEntity.Entities;
+using InternalAssets.Codebase.Library.MonoEntity.EntityComponent;
 using UnityEngine;
 
 namespace InternalAssets.Codebase.Gameplay.Workplaces
 {
     public abstract class Workplace : Entity
     {
-        public bool IsAvailable => !_isBusy;
-        public Transform Origin => _origin;
-        public Transform WorkplaceStandingTransform => _workplaceStandingTransform;
+        public WorkplaceComponents WorkplaceComponents { get; private set; } = null;
         
-        [SerializeField] protected string _workplaceId;
-        [SerializeField] protected Transform _origin;
-        [SerializeField] protected Transform _workplaceStandingTransform;
+        protected Worker CurrentWorker;
+        protected float WorkCompleteProgress = 0f;
 
-        protected Worker _currentWorker;
-        
-        protected float _workCompletePercent = 0f;
-        protected bool _isBusy;
-        
-        public Workplace SetWorker(Worker worker)
+        public override Entity Bootstrap(EntityComponents components = null)
         {
-            _currentWorker = worker;
+            WorkplaceComponents = components as WorkplaceComponents;
             
+            return base.Bootstrap(components);
+        }
+
+        public virtual bool IsAvailable() => CurrentWorker == null;
+
+        public Workplace SetCurrentWorker(Worker worker)
+        {
+            CurrentWorker = worker;
+            return this;
+        }
+        
+        public Workplace RemoveCurrentWorker(Worker worker)
+        {
+            CurrentWorker = worker;
+            return this;
+        }
+        
+        public Workplace DoWork(float workDuration)
+        {
             return this;
         }
         
@@ -30,13 +43,23 @@ namespace InternalAssets.Codebase.Gameplay.Workplaces
         {
             return this;
         }
+        
+        protected abstract void ExecuteWork(float workDuration);
+    }
+    
+    [Serializable]
+    public class WorkplaceComponents : EntityComponents
+    {
+        [field: SerializeField] public string WorkplaceId { get; protected set; } = string.Empty;
+        
+        [field: SerializeField] public Transform ModelTransform { get; protected set; }
+        [field: SerializeField] public Transform WorkingTransform { get; protected set; }
 
-        public Workplace DoWork(float workDuration)
+        public override EntityComponents Declare(Entity abstractEntity)
         {
-
+            Add(typeof(Entity), abstractEntity);
+            
             return this;
         }
-        
-        protected abstract void Work(float workDuration);
     }
 }

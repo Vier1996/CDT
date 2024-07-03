@@ -11,7 +11,7 @@ namespace InternalAssets.Codebase.Gameplay.Relaxes
         
         private void Start()
         {
-            InitializeEntity();
+            //InitializeEntity();
         }
 
         public bool InBounds(Vector3 position) => _area.InBounds(position);

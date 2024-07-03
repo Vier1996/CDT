@@ -1,7 +1,8 @@
 ﻿using System;
 using InternalAssets.Codebase.Gameplay.Navigation;
 using InternalAssets.Codebase.Library.Behaviors;
-using InternalAssets.Codebase.Library.SAD;
+using InternalAssets.Codebase.Library.MonoEntity.Entities;
+using InternalAssets.Codebase.Library.MonoEntity.EntityComponent;
 using UnityEngine;
 
 namespace InternalAssets.Codebase.Gameplay.Cats
@@ -14,15 +15,12 @@ namespace InternalAssets.Codebase.Gameplay.Cats
         
         public override EntityComponents Declare(Entity abstractEntity)
         {
-            innerComponents.Add(nameof(Entity), abstractEntity);
-            innerComponents.Add(nameof(CatAnimator), _catAnimator);
-            innerComponents.Add(nameof(BehaviorMachine), new BehaviorMachine());
-            innerComponents.Add(nameof(TranslateComponent), _translateComponent);
+            Add(abstractEntity);
+            Add(_catAnimator);
+            Add(new BehaviorMachine());
+            Add(_translateComponent);
 
             return this;
         }
-
-        public void TryAdd(string componentName, object component) => 
-            innerComponents.TryAdd(componentName, component);
     }
 }

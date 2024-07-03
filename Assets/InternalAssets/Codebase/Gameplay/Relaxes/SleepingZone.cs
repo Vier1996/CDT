@@ -11,7 +11,7 @@ namespace InternalAssets.Codebase.Gameplay.Relaxes
         
         private void Start()
         {
-            InitializeEntity();
+            //InitializeEntity();
         }
     }
 }

@@ -17,10 +17,7 @@ namespace InternalAssets.Codebase.Gameplay.Cats
 
         public void Start()
         {
-            InitializeEntity(EntityComponents);
-            
-            EntityComponents.TryAdd(nameof(CatEntity), this);
-            
+            Bootstrap(EntityComponents);
             InitializeStates();
         }
 

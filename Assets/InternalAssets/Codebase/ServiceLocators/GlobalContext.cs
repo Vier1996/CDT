@@ -1,9 +1,9 @@
-using InternalAssets.Codebase.Library.SAD;
-using InternalAssets.Codebase.Library.ServiceContainer;
+using ACS.Core.ServicesContainer;
+using InternalAssets.Codebase.Library.MonoEntity.Tools.World;
 
 namespace InternalAssets.Codebase.ServiceLocators
 {
-    public class GlobalContext : ServiceLocatorGlobalBootstrapper
+    public class GlobalContext : ServiceContainerGlobal
     {
         protected override void Bootstrap()
         {

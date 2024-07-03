@@ -3,7 +3,7 @@ using InternalAssets.Codebase.Gameplay.Navigation;
 using InternalAssets.Codebase.Gameplay.Workplaces;
 using InternalAssets.Codebase.Library.Behaviors;
 using InternalAssets.Codebase.Library.Extension;
-using InternalAssets.Codebase.Library.SAD;
+using InternalAssets.Codebase.Library.MonoEntity.Entities;
 
 namespace InternalAssets.Codebase.Gameplay.Cats.BehaviorTypes
 {
@@ -33,7 +33,7 @@ namespace InternalAssets.Codebase.Gameplay.Cats.BehaviorTypes
             _catAnimator.SetAnimation(CatAnimationType.move_run_f);
 
             _translateComponent.Translate(
-                _catWorkingBehaviorComponents.Workplace.WorkplaceStandingTransform, 
+                _catWorkingBehaviorComponents.Workplace.WorkplaceComponents.WorkingTransform, 
                 completeCallback: OnArrivedToWorkplace);
         }
 
@@ -41,7 +41,7 @@ namespace InternalAssets.Codebase.Gameplay.Cats.BehaviorTypes
         {
             _catAnimator.SetAnimation(CatAnimationType.action_coding_begin, completeCallback: OnCodingBegin);
             
-            _catEntity.Transform.Normalize(_catWorkingBehaviorComponents.Workplace.Origin);
+            _catEntity.Transform.Normalize(_catWorkingBehaviorComponents.Workplace.WorkplaceComponents.ModelTransform);
         }
 
         private void OnCodingBegin()

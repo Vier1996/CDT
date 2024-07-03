@@ -1,10 +1,10 @@
+using ACS.Core.ServicesContainer;
 using InternalAssets.Codebase.Gameplay.Behaviors;
 using InternalAssets.Codebase.Gameplay.Workplaces;
-using InternalAssets.Codebase.Library.ServiceContainer;
 
 namespace InternalAssets.Codebase.ServiceLocators
 {
-    public class LocalContext : ServiceLocatorSceneBootstrapper
+    public class LocalContext : ServiceContainerLocal
     {
         protected override void Bootstrap()
         {
