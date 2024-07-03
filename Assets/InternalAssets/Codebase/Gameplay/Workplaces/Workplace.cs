@@ -4,6 +4,7 @@ using InternalAssets.Codebase.Gameplay.Workers;
 using InternalAssets.Codebase.Library.MonoEntity.Entities;
 using InternalAssets.Codebase.Library.MonoEntity.EntityComponent;
 using Sirenix.OdinInspector;
+using UniRx;
 using UnityEngine;
 
 namespace InternalAssets.Codebase.Gameplay.Workplaces
@@ -11,9 +12,9 @@ namespace InternalAssets.Codebase.Gameplay.Workplaces
     public abstract class Workplace : Entity
     {
         public WorkplaceComponents WorkplaceComponents { get; private set; } = null;
+        public ReactiveProperty<float> WorkCompleteProgress { get; private set; } = new ReactiveProperty<float>(0f);
         
         protected Worker CurrentWorker;
-        protected float WorkCompleteProgress = 0f;
 
         public override Entity Bootstrap(EntityComponents components = null)
         {
