@@ -1,7 +1,9 @@
 using System;
+using InternalAssets.Codebase.Gameplay.Interactable;
 using InternalAssets.Codebase.Gameplay.Workers;
 using InternalAssets.Codebase.Library.MonoEntity.Entities;
 using InternalAssets.Codebase.Library.MonoEntity.EntityComponent;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace InternalAssets.Codebase.Gameplay.Workplaces
@@ -50,10 +52,9 @@ namespace InternalAssets.Codebase.Gameplay.Workplaces
     [Serializable]
     public class WorkplaceComponents : EntityComponents
     {
-        [field: SerializeField] public string WorkplaceId { get; protected set; } = string.Empty;
-        
-        [field: SerializeField] public Transform ModelTransform { get; protected set; }
-        [field: SerializeField] public Transform WorkingTransform { get; protected set; }
+        [field: SerializeField, BoxGroup("ID")] public string WorkplaceId { get; protected set; } = string.Empty;
+        [field: SerializeField, BoxGroup("Transforms")] public Transform ModelTransform { get; protected set; }
+        [field: SerializeField, BoxGroup("Transforms")] public Transform WorkingTransform { get; protected set; }
 
         public override EntityComponents Declare(Entity abstractEntity)
         {
