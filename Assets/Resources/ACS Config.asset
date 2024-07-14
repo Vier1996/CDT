@@ -12,18 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49669b8b7c1a9604584fafe2b9bc7572, type: 3}
   m_Name: ACS Config
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   _bootstrapOptions:
     _isEnabled: 0
-    FrameRateType: 1
-    TargetRate: 165
+    FrameRateType: 0
+    TargetRate: 60
     TweenersCapacity: 500
     SequencesCapacity: 125
+    IgnoreScreenOrientation: 0
     ScreenOrientation: 1
   _dataSettings:
-    _isEnabled: 1
+    _isEnabled: 0
     PackageURL: https://github.com/Vier1996/CoreServices.git?path=Packages/com.alexplay.data
     EnableAutoSave: 0
     AutoSaveDelay: 60
+    ActiveModels: []
   _signalBusSettings:
     _isEnabled: 0
     PackageURL: https://github.com/Vier1996/CoreServices.git?path=Packages/com.alexplay.signal-bus

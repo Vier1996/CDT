@@ -1,4 +1,5 @@
 using System;
+using ACS.Core.ServicesContainer;
 using UniRx;
 using UnityEngine;
 
@@ -12,8 +13,10 @@ namespace InternalAssets.Codebase.Library.Camera
 
         private void Awake()
         {
+            ServiceContainer.ForCurrentScene().Get(out UnityEngine.Camera camera);
+            
             _selfTransform = transform;
-            _mainCameraTransform = UnityEngine.Camera.main.transform;
+            _mainCameraTransform = camera.transform;
             
             _workingDisposable = Observable.EveryFixedUpdate().Subscribe(_ => ToCamera());
         }
