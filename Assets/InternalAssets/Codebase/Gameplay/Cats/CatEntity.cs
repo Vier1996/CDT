@@ -2,19 +2,21 @@
 using InternalAssets.Codebase.Gameplay.Cats.BehaviorTypes.Relaxing;
 using InternalAssets.Codebase.Gameplay.Relaxes;
 using InternalAssets.Codebase.Gameplay.Workers;
-using InternalAssets.Codebase.Gameplay.Workplaces;
 using InternalAssets.Codebase.Library.Behaviors;
+using InternalAssets.Codebase.Library.MonoEntity.Entities;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace InternalAssets.Codebase.Gameplay.Cats
 {
-    public class CatEntity : Worker
+    public class CatEntity : Entity, IWorker
     {
-        [SerializeField] protected CatComponents EntityComponents;
-        [SerializeField] protected Workplace workplace;
-        [SerializeField] protected RelaxPoint relaxPoint;
+        [field: SerializeField, BoxGroup("Worker"), PropertyOrder(-1)] public string WorkerId { get; private set; }
 
+        [SerializeField] protected CatComponents EntityComponents;
+        
+        [SerializeField] protected RelaxPoint relaxPoint;
+        
         public void Start()
         {
             Bootstrap(EntityComponents);
@@ -42,19 +44,6 @@ namespace InternalAssets.Codebase.Gameplay.Cats
                 RelaxPoint = relaxPoint
             }, force: true);
         }
-
-#if UNITY_EDITOR
-
-        [Button]
-        private void MoveToWork()
-        {
-            EntityComponents.TryGetAbstractComponent(out BehaviorMachine behaviorMachine);
-
-            behaviorMachine.SwitchBehavior<CatWorkingBehavior>(new CatWorkingBehaviorComponents()
-            {
-                Workplace = workplace
-            });
-        }
-#endif
+        
     }
 }

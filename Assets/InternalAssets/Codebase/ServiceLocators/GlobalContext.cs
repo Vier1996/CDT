@@ -1,4 +1,5 @@
 using ACS.Core.ServicesContainer;
+using InternalAssets.Codebase.Gameplay.Services;
 using InternalAssets.Codebase.Library.MonoEntity.Tools.World;
 
 namespace InternalAssets.Codebase.ServiceLocators
@@ -10,6 +11,7 @@ namespace InternalAssets.Codebase.ServiceLocators
             base.Bootstrap();
 
             Container.Register(typeof(EntityWorld), new EntityWorld());
+            Container.Register(typeof(WorkplaceService), new WorkplaceService());
         }
     }
 }

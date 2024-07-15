@@ -16,7 +16,7 @@ namespace InternalAssets.Codebase.Gameplay.Workplaces
         public ReactiveProperty<float> WorkCompleteProgress { get; private set; } = new ReactiveProperty<float>(0f);
         public ReactiveProperty<WorkplaceWorkResult> WorkplaceWorkResult { get; private set; } = new();
         
-        protected Worker CurrentWorker;
+        protected IWorker CurrentWorker;
         protected IDisposable ChangingProgressDisposable;
 
         public override Entity Bootstrap(EntityComponents components = null)
@@ -28,21 +28,28 @@ namespace InternalAssets.Codebase.Gameplay.Workplaces
 
         public virtual bool IsAvailable() => CurrentWorker == null;
 
-        public Workplace SetCurrentWorker(Worker worker)
+        public Workplace SetCurrentWorker(IWorker worker)
         {
             CurrentWorker = worker;
             return this;
         }
         
-        public Workplace RemoveCurrentWorker(Worker worker)
+        public Workplace RemoveCurrentWorker(IWorker worker)
         {
             CurrentWorker = worker;
             return this;
         }
         
         [Button] public abstract void ExecuteWork();
+        
         [Button] public abstract void DispatchWork();
+        
         protected abstract void FinishWork();
+
+        private void LoadData()
+        {
+            
+        }
     }
     
     [Serializable]
