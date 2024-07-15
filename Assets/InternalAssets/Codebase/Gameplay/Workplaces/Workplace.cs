@@ -1,4 +1,5 @@
 using System;
+using Cysharp.Threading.Tasks;
 using InternalAssets.Codebase.Gameplay.Interactable;
 using InternalAssets.Codebase.Gameplay.Workers;
 using InternalAssets.Codebase.Library.MonoEntity.Entities;
@@ -13,8 +14,10 @@ namespace InternalAssets.Codebase.Gameplay.Workplaces
     {
         public WorkplaceComponents WorkplaceComponents { get; private set; } = null;
         public ReactiveProperty<float> WorkCompleteProgress { get; private set; } = new ReactiveProperty<float>(0f);
+        public ReactiveProperty<WorkplaceWorkResult> WorkplaceWorkResult { get; private set; } = new();
         
         protected Worker CurrentWorker;
+        protected IDisposable ChangingProgressDisposable;
 
         public override Entity Bootstrap(EntityComponents components = null)
         {
@@ -37,17 +40,9 @@ namespace InternalAssets.Codebase.Gameplay.Workplaces
             return this;
         }
         
-        public Workplace DoWork(float workDuration)
-        {
-            return this;
-        }
-        
-        public Workplace ReleaseWorker()
-        {
-            return this;
-        }
-        
-        protected abstract void ExecuteWork(float workDuration);
+        [Button] public abstract void ExecuteWork();
+        [Button] public abstract void DispatchWork();
+        protected abstract void FinishWork();
     }
     
     [Serializable]

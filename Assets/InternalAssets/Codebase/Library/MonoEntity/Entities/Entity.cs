@@ -30,7 +30,7 @@ namespace InternalAssets.Codebase.Library.MonoEntity.Entities
         {
             if (IsBootstrapped) return this;
 
-            ACS.Core.ServicesContainer.ServiceContainer.Core.Get(out _signalBusService);
+            ServiceContainer.Core.Get(out _signalBusService);
             
             IsBootstrapped = true;
             Transform = transform;
@@ -47,7 +47,7 @@ namespace InternalAssets.Codebase.Library.MonoEntity.Entities
                         derivedEntityComponent.Bootstrapp(this);
                 });
             
-            _signalBusService.Fire(new EntityCreatedSignal(this));
+            _signalBusService?.Fire(new EntityCreatedSignal(this));
             
             return this;
         }
@@ -62,7 +62,7 @@ namespace InternalAssets.Codebase.Library.MonoEntity.Entities
                         derivedEntityComponent.Dispose();
                 });
             
-            _signalBusService.Fire(new EntityDestroyedSignal(this));
+            _signalBusService?.Fire(new EntityDestroyedSignal(this));
         }
 
         [Button("Kill entity")]
