@@ -3,9 +3,7 @@ using ACS.Core.ServicesContainer;
 using InternalAssets.Codebase.Gameplay.Cats.BehaviorTypes;
 using InternalAssets.Codebase.Gameplay.Cats.BehaviorTypes.Relaxing;
 using InternalAssets.Codebase.Gameplay.Relaxes;
-using InternalAssets.Codebase.Gameplay.Workers;
-using InternalAssets.Codebase.Gameplay.Workers.Base;
-using InternalAssets.Codebase.Gameplay.Workplaces;
+using InternalAssets.Codebase.Gameplay.Workers.Variations;
 using InternalAssets.Codebase.Gameplay.Workplaces.Base;
 using InternalAssets.Codebase.Library.Behaviors;
 using InternalAssets.Codebase.Library.MonoEntity.Entities;
@@ -16,7 +14,7 @@ using WorkplaceService = InternalAssets.Codebase.Gameplay.Workplaces.Service.Wor
 
 namespace InternalAssets.Codebase.Gameplay.Cats
 {
-    public class CatEntity : Entity, IWorker
+    public class CatEntity : Entity, ICatWorker
     {
         [field: SerializeField, PropertyOrder(-1)] public string WorkerId { get; private set; }
 
