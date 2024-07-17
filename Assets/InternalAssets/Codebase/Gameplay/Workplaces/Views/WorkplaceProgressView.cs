@@ -1,4 +1,5 @@
 using System;
+using InternalAssets.Codebase.Gameplay.Workplaces.Base;
 using InternalAssets.Codebase.Library.Extension;
 using Sirenix.OdinInspector;
 using UniRx;
@@ -26,7 +27,7 @@ namespace InternalAssets.Codebase.Gameplay.Workplaces.Views
             _currentWorkplace = workplace;
             
             _reactiveDisposable?.Dispose();
-            _reactiveDisposable = _currentWorkplace.WorkCompleteProgress.Subscribe(UpdateProgress);
+            _reactiveDisposable = _currentWorkplace.WorkProgress.Subscribe(UpdateProgress);
             
             return this;
         }

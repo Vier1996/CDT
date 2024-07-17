@@ -1,5 +1,5 @@
 using ACS.Core.ServicesContainer;
-using InternalAssets.Codebase.Gameplay.Services;
+using InternalAssets.Codebase.Gameplay.Workplaces.Service;
 using InternalAssets.Codebase.Library.MonoEntity.Tools.World;
 
 namespace InternalAssets.Codebase.ServiceLocators

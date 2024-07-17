@@ -13,7 +13,6 @@ namespace InternalAssets.Codebase.ServiceLocators
         {
             base.Bootstrap();
 
-            Container.Register(typeof(WorkplaceService), new WorkplaceService());
             Container.Register(typeof(BehaviorService), new BehaviorService());
             Container.Register(typeof(Camera), _camera);
         }

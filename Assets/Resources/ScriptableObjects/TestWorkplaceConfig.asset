@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4be285ee2b8c4efaa9c489394db5aa65, type: 3}
-  m_Name: WorkConfigurationContainer
+  m_Script: {fileID: 11500000, guid: 2de150abbda34c4e891eb3dc874c3ea4, type: 3}
+  m_Name: TestWorkplaceConfig
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,7 +21,5 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  _workConfigs:
-  - {fileID: 11400000, guid: 1fd4c3f9b4cfdc044b9b421fa29647a8, type: 2}
-  - {fileID: 11400000, guid: b85ad6b96814c034d95062b4d25a2388, type: 2}
-  - {fileID: 11400000, guid: 5022d155a5e188147b4e8271f0031a0f, type: 2}
+  <WorkplaceId>k__BackingField: test_workplace
+  <WorkingSeconds>k__BackingField: 300

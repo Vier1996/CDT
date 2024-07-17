@@ -24,7 +24,7 @@ namespace InternalAssets.Codebase.Library.Extension
                 .Take(1)
                 .Subscribe(_ => callback?.Invoke());
 
-        public static IObservable<float> DoValue(float startValue, float endValue, float duration, Action onComplete = null) =>
+        public static IObservable<float> DoValue(float from, float to, float duration, Action onComplete = null) =>
             Observable.Create<float>(observer =>
             {
                 float startTime = Time.realtimeSinceStartup;
@@ -37,12 +37,12 @@ namespace InternalAssets.Codebase.Library.Extension
 
                     if (progress >= 1.0f)
                     {
-                        observer.OnNext(endValue);
+                        observer.OnNext(to);
                         observer.OnCompleted();
                     }
                     else
                     {
-                        observer.OnNext(Mathf.Lerp(startValue, endValue, progress));
+                        observer.OnNext(Mathf.Lerp(from, to, progress));
                     }
                 }
 
@@ -55,12 +55,12 @@ namespace InternalAssets.Codebase.Library.Extension
                 };
             });
 
-        public static IObservable<long> DoValue(long startValue, long endValue, float duration, Action onComplete = null) =>
+        public static IObservable<long> DoValue(long from, long to, float duration, Action onComplete = null) =>
             Observable.Create<long>(observer =>
             {
                 float startTime = Time.time;
                 float progress = 0.0f;
-                float step = endValue - startValue;
+                float step = to - from;
 
                 void UpdateProgress()
                 {
@@ -68,12 +68,12 @@ namespace InternalAssets.Codebase.Library.Extension
 
                     if (progress >= 1.0f)
                     {
-                        observer.OnNext(endValue);
+                        observer.OnNext(to);
                         observer.OnCompleted();
                     }
                     else
                     {
-                        observer.OnNext(startValue + (long)(step * progress));
+                        observer.OnNext(from + (long)(step * progress));
                     }
                 }
 

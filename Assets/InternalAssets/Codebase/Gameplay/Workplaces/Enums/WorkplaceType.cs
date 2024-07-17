@@ -1,4 +1,4 @@
-﻿namespace InternalAssets.Codebase.Gameplay.Enums
+﻿namespace InternalAssets.Codebase.Gameplay.Workplaces.Enums
 {
     public enum WorkplaceType
     {

@@ -1,7 +1,9 @@
-﻿namespace InternalAssets.Codebase.Gameplay.Workplaces
+﻿namespace InternalAssets.Codebase.Gameplay.Workplaces.Base
 {
     public abstract class WorkplaceWorkResult { }
 
+    public class StartedWorkResult : WorkplaceWorkResult { }
+    
     public class FinishedWorkResult : WorkplaceWorkResult { }
 
     public class StoppedWorkResult : WorkplaceWorkResult

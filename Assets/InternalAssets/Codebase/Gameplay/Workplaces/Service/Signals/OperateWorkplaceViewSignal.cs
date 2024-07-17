@@ -1,11 +1,13 @@
-using InternalAssets.Codebase.Gameplay.Workplaces;
+using ACS.SignalBus.SignalBus.Parent;
+using InternalAssets.Codebase.Gameplay.Workplaces.Base;
 
-namespace InternalAssets.Codebase.Gameplay.Services.Signals
+namespace InternalAssets.Codebase.Gameplay.Workplaces.Service.Signals
 {
+    [Signal]
     public class OperateWorkplaceViewSignal
     {
-        public WorkplaceOperateType OperateType { get; private set; } = WorkplaceOperateType.none;
-        public Workplace Workplace { get; private set; }
+        public WorkplaceOperateType OperateType = WorkplaceOperateType.none;
+        public Workplace Workplace;
         
         public enum WorkplaceOperateType
         {

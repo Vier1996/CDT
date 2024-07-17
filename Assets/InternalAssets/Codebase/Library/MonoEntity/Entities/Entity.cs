@@ -20,7 +20,7 @@ namespace InternalAssets.Codebase.Library.MonoEntity.Entities
 
         private ISignalBusService _signalBusService;
         
-        private void Start()
+        protected virtual void Start()
         {
             if (_selfActivated)
                 Bootstrap();

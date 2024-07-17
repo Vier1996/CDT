@@ -662,7 +662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4ac31edaf004ab45b6ef56a13b45914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camera: {fileID: 0}
+  _camera: {fileID: 2007873234}
 --- !u!114 &390538558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2485,7 +2485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5563528877048190876, guid: 3dc1a86598ce1bd4f8c7e103b923e486, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5563528877048190876, guid: 3dc1a86598ce1bd4f8c7e103b923e486, type: 3}
       propertyPath: workplace
@@ -2495,6 +2495,10 @@ PrefabInstance:
       propertyPath: relaxPoint
       value: 
       objectReference: {fileID: 3441587623476557667}
+    - target: {fileID: 5563528877048190876, guid: 3dc1a86598ce1bd4f8c7e103b923e486, type: 3}
+      propertyPath: _selfActivated
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5563528877048190876, guid: 3dc1a86598ce1bd4f8c7e103b923e486, type: 3}
       propertyPath: <WorkerId>k__BackingField
       value: TestCat
