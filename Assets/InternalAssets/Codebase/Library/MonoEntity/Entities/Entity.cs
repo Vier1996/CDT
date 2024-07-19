@@ -44,7 +44,7 @@ namespace InternalAssets.Codebase.Library.MonoEntity.Entities
                 .ForEach(cmp =>
                 {
                     if (cmp.Value is IDerivedEntityComponent derivedEntityComponent)
-                        derivedEntityComponent.Bootstrapp(this);
+                        derivedEntityComponent.Bootstrap(this);
                 });
             
             _signalBusService?.Fire(new EntityCreatedSignal(this));

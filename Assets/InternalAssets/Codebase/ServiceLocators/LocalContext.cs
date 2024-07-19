@@ -1,6 +1,5 @@
 using ACS.Core.ServicesContainer;
-using InternalAssets.Codebase.Gameplay.Behaviors;
-using InternalAssets.Codebase.Gameplay.Workplaces;
+
 using UnityEngine;
 
 namespace InternalAssets.Codebase.ServiceLocators
@@ -13,7 +12,6 @@ namespace InternalAssets.Codebase.ServiceLocators
         {
             base.Bootstrap();
 
-            Container.Register(typeof(BehaviorService), new BehaviorService());
             Container.Register(typeof(Camera), _camera);
         }
     }
