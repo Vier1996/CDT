@@ -12,9 +12,9 @@ namespace InternalAssets.Codebase.Gameplay.Entities.Cats.CatBehavior
 
         public abstract void Construct(EntityComponents components);
 
-        public abstract void Enter(BehaviorComponents behaviorComponents = null);
+        protected abstract void Enter(BehaviorComponents behaviorComponents = null);
 
-        public abstract void Exit();
+        protected abstract void Exit();
 
         public virtual void Dispose() { }
     }

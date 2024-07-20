@@ -1519,7 +1519,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _selfActivated: 0
   <WorkerId>k__BackingField: 
-  EntityComponents:
+  _entityComponents:
     _catAnimator: {fileID: 5563528876777524659}
     _translateComponent: {fileID: 5044563173187131836}
 --- !u!1 &5604771312359561215

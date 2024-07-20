@@ -17,12 +17,12 @@ namespace InternalAssets.Codebase.Gameplay.Entities.Cats.CatBehavior.BehaviorTyp
             EntityComponents.TryGetAbstractComponent(out _catAnimator);
         }
 
-        public override void Enter(BehaviorComponents behaviorComponents = null)
+        protected override void Enter(BehaviorComponents behaviorComponents = null)
         {
             _catAnimator.SetAnimation(CatAnimationType.move_walk_f, force: true);
         }
 
-        public override void Exit()
+        protected override void Exit()
         {
         }
     }

@@ -15,17 +15,15 @@ namespace InternalAssets.Codebase.Gameplay.Entities.Cats.CatBehavior
             Machine = new BehaviorMachine();
             CatBehaviorsConfig catBehaviorsConfig = CatBehaviorsConfig.GetInstance();
             
-            foreach (ICatBehavior enemyBehavior in catBehaviorsConfig.CatBehaviors)
+            foreach (ScriptableBehavior enemyBehavior in catBehaviorsConfig.Behaviors)
             {
-                Type targetBehaviorType = enemyBehavior.GetType();
+                Type targetBehaviorType = enemyBehavior.Behavior.GetType();
 
-                if (Activator.CreateInstance(targetBehaviorType, args: enemyBehavior) is not IBehavior behavior)
+                if (Activator.CreateInstance(targetBehaviorType, args: enemyBehavior.Behavior) is not IBehavior behavior)
                     throw new ArgumentException("Разраб где-то обосрался...");
 
                 Machine.AppendBehavior(targetBehaviorType, behavior, entity.Components);
             }
-            
-            Machine.SwitchToDefaultBehavior();
         }
 
         public void Dispose() { }

@@ -23,31 +23,7 @@ namespace InternalAssets.Codebase.Library.Behavior
             _currentBehaviorState = null;
             _behaviorStates.Clear();
         }
-
-        public void SwitchToDefaultBehavior()
-        {
-            IBehavior defaultBehavior = _behaviorStates.First(bh => bh.Value.IsDefaultBehavior).Value;
-           
-            ChangeBehavior(defaultBehavior);
-        }
-
-        public void SwitchBehavior<TBehavior>(BehaviorComponents behaviorComponents = null, bool force = false) where TBehavior : IBehavior
-        {
-            IBehavior nextBehavior = _behaviorStates[typeof(TBehavior)];
-            
-            if(_currentBehaviorState == nextBehavior && force == false)
-                return;
-
-            ChangeBehavior(nextBehavior, behaviorComponents);
-        }
-
-        private void ChangeBehavior(IBehavior nextBehavior, BehaviorComponents behaviorComponents = null)
-        {
-            _currentBehaviorState?.Exit();
-            _currentBehaviorState = nextBehavior;
-            _currentBehaviorState.Enter(behaviorComponents);
-        }
-
+        
         public void Dispose() => _currentBehaviorState?.Dispose();
     }
 }
