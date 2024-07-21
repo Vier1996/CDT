@@ -52,7 +52,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 680a96bf94ca3064798f628dfd411944, type: 2}
+  - {fileID: 2100000, guid: d526b6b4a72e1ec46a7581840d80fdfb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -359,7 +359,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 680a96bf94ca3064798f628dfd411944, type: 2}
+  - {fileID: 2100000, guid: d526b6b4a72e1ec46a7581840d80fdfb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -913,7 +913,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 680a96bf94ca3064798f628dfd411944, type: 2}
+  - {fileID: 2100000, guid: d526b6b4a72e1ec46a7581840d80fdfb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1400,6 +1400,7 @@ GameObject:
   - component: {fileID: 5563528876777524656}
   - component: {fileID: 5563528876777524659}
   - component: {fileID: 5044563173187131836}
+  - component: {fileID: 5953715424404146691}
   m_Layer: 0
   m_Name: '[Components]'
   m_TagString: Untagged
@@ -1448,6 +1449,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _agentOfEnenty: {fileID: 5563528877048190877}
+--- !u!114 &5953715424404146691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5563528876777524657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373fac233f4441b5bc6c70cca24ece4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _entityStats
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[InternalAssets.Codebase.Gameplay.Stats.IEntityStat,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|InternalAssets.Codebase.Gameplay.Stats.CatStats.CatNameStat, Assembly-CSharp
+    - Name: <Name>k__BackingField
+      Entry: 1
+      Data: Abubis
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
 --- !u!1 &5563528877048190875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1522,6 +1566,7 @@ MonoBehaviour:
   _entityComponents:
     _catAnimator: {fileID: 5563528876777524659}
     _translateComponent: {fileID: 5044563173187131836}
+    _statsCollectorMono: {fileID: 5953715424404146691}
 --- !u!1 &5604771312359561215
 GameObject:
   m_ObjectHideFlags: 0

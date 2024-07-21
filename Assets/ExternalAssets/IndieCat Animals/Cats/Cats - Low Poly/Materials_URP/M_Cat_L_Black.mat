@@ -146,7 +146,7 @@ Material:
     m_Ints: []
     m_Floats:
     - Boolean_2781CA78: 1
-    - Boolean_4C0CF7D3: 1
+    - Boolean_4C0CF7D3: 0
     - Boolean_523A0F5F: 1
     - Boolean_66D76BED: 1
     - Boolean_7CD2C539: 1
@@ -162,7 +162,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - Color_13ACA631: {r: 0.7882353, g: 0.7882353, b: 0.7882353, a: 0}
+    - Color_13ACA631: {r: 1, g: 1, b: 1, a: 0}
     - Color_18ADC7B9: {r: 0.5137254, g: 0.4470588, b: 0.40392157, a: 0}
     - Color_1EB05C51: {r: 0.4509804, g: 0.30588236, b: 0.36078432, a: 0}
     - Color_229D9C7C: {r: 0.19215687, g: 0.19215687, b: 0.19215687, a: 0}
