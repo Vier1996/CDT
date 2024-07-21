@@ -2,20 +2,24 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using InternalAssets.Codebase.Library.MonoEntity.EntityComponent;
+using UniRx;
 
 namespace InternalAssets.Codebase.Library.Behavior
 {
-    public class BehaviorMachine
+    public abstract class BehaviorMachine : IBehaviorMachine
     {
+        public IReadOnlyReactiveProperty<IBehavior> StateChangedProperty => _stateChangedProperty;
+        
+        private readonly ReactiveProperty<IBehavior> _stateChangedProperty = new ();
         private readonly Dictionary<Type, IBehavior> _behaviorStates = new();
         private IBehavior _currentBehaviorState;
+        
+        public virtual void Dispose() => _currentBehaviorState?.Dispose();
 
-        public BehaviorMachine AppendBehavior(Type behaviorType, IBehavior behavior, EntityComponents components = null)
+        public void AppendBehavior(Type behaviorType, IBehavior behavior, EntityComponents components = null)
         {
             if(_behaviorStates.TryAdd(behaviorType, behavior))
-                _behaviorStates.Last().Value.Construct(components);
-            
-            return this;
+                _behaviorStates.Last().Value.Construct(this, components);
         }
 
         public void ClearMachine()
@@ -24,6 +28,19 @@ namespace InternalAssets.Codebase.Library.Behavior
             _behaviorStates.Clear();
         }
         
-        public void Dispose() => _currentBehaviorState?.Dispose();
+        public void Notify(BehaviorStateProperty property)
+        {
+            if(TryChangeBehavior(property))
+                _stateChangedProperty.Value = _currentBehaviorState;
+        }
+
+        private bool TryChangeBehavior(BehaviorStateProperty property)
+        {
+            _currentBehaviorState?.Exit();
+            _currentBehaviorState = _behaviorStates[property.BehaviorType];
+            _currentBehaviorState.Enter(property.Components);
+            
+            return true;
+        }
     }
 }

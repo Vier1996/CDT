@@ -1,4 +1,5 @@
-﻿using InternalAssets.Codebase.Library.Behavior;
+﻿using System;
+using InternalAssets.Codebase.Library.Behavior;
 using InternalAssets.Codebase.Library.MonoEntity.EntityComponent;
 using UnityEngine;
 
@@ -9,13 +10,14 @@ namespace InternalAssets.Codebase.Gameplay.Entities.Cats.CatBehavior
         [field: SerializeField] public bool IsDefaultBehavior { get; set; }
         
         protected EntityComponents EntityComponents;
+        
+        private IDisposable _subscriptionToStateDisposable;
 
-        public abstract void Construct(EntityComponents components);
-
-        protected abstract void Enter(BehaviorComponents behaviorComponents = null);
-
-        protected abstract void Exit();
-
+        public abstract void Construct(IBehaviorMachine machine, EntityComponents components);
         public virtual void Dispose() { }
+        
+        public abstract void Enter(IBehaviorComponents behaviorComponents = null);
+
+        public abstract void Exit();
     }
 }

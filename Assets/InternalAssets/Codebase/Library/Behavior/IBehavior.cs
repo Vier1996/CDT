@@ -7,6 +7,10 @@ namespace InternalAssets.Codebase.Library.Behavior
     {
         public bool IsDefaultBehavior { get; set; }
 
-        public void Construct(EntityComponents components);
+        public void Construct(IBehaviorMachine machine, EntityComponents components);
+        
+        public void Enter(IBehaviorComponents behaviorComponents = null);
+
+        public void Exit();
     }
 }
