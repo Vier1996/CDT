@@ -146,11 +146,11 @@ Material:
     m_Ints: []
     m_Floats:
     - Boolean_2781CA78: 1
-    - Boolean_4C0CF7D3: 1
+    - Boolean_4C0CF7D3: 0
     - Boolean_523A0F5F: 1
     - Boolean_66D76BED: 0
     - Boolean_7CD2C539: 1
-    - Boolean_B1E7E1C2: 1
+    - Boolean_B1E7E1C2: 0
     - Boolean_C792849A: 0
     - Boolean_E0857713: 1
     - Boolean_FC9E3EC0: 1
@@ -163,25 +163,25 @@ Material:
     - _QueueOffset: 0
     m_Colors:
     - Color_13ACA631: {r: 0, g: 0, b: 0, a: 0}
-    - Color_18ADC7B9: {r: 0.5137254, g: 0.4470588, b: 0.40392157, a: 0}
+    - Color_18ADC7B9: {r: 1, g: 0, b: 0.6784315, a: 0}
     - Color_1EB05C51: {r: 0.59607846, g: 0.45098042, b: 0.47450984, a: 0}
     - Color_229D9C7C: {r: 0.6392157, g: 0.58431375, b: 0.4784314, a: 0}
     - Color_2D9384E7: {r: 0, g: 0, b: 0, a: 0}
-    - Color_304ED175: {r: 0.12941177, g: 0.0627451, b: 0.015686275, a: 0}
-    - Color_32956E0B: {r: 0, g: 0, b: 0, a: 0}
+    - Color_304ED175: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 0}
+    - Color_32956E0B: {r: 1, g: 0, b: 0, a: 0}
     - Color_43D699FD: {r: 0, g: 0, b: 0, a: 0}
-    - Color_47A7A675: {r: 0.9019608, g: 0.9019608, b: 0.9019608, a: 0}
-    - Color_6BAB0765: {r: 0.7450981, g: 0.35686278, b: 0.40392157, a: 0}
+    - Color_47A7A675: {r: 1, g: 1, b: 1, a: 0}
+    - Color_6BAB0765: {r: 1, g: 0, b: 0, a: 0}
     - Color_85313AED: {r: 0.98039216, g: 0.9137255, b: 0.737255, a: 0}
     - Color_92653150: {r: 0, g: 0, b: 0, a: 0}
     - Color_A19B2226: {r: 0.10588236, g: 0.25882354, b: 0.38823533, a: 0}
-    - Color_A38F6A3D: {r: 0.89019614, g: 0.8470589, b: 0.76470596, a: 0}
-    - Color_B29D9E15: {r: 0, g: 0, b: 0, a: 0}
+    - Color_A38F6A3D: {r: 0.48595762, g: 0, b: 1, a: 0}
+    - Color_B29D9E15: {r: 0, g: 0, b: 0, a: 1}
     - Color_B4447790: {r: 0, g: 0, b: 0, a: 0}
-    - Color_BD5AAB2F: {r: 0.30980393, g: 0.6509804, b: 0.94117653, a: 0}
+    - Color_BD5AAB2F: {r: 0.3098039, g: 0.6509804, b: 0.94117653, a: 0}
     - Color_BD909386: {r: 0, g: 0, b: 0, a: 0}
     - Color_BFE7A771: {r: 0, g: 0, b: 0, a: 0}
-    - Color_C0094F21: {r: 0, g: 0, b: 0, a: 0}
+    - Color_C0094F21: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 0}
     - Color_D1351635: {r: 1, g: 1, b: 1, a: 0}
     - Color_F909C112: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

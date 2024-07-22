@@ -1,6 +1,6 @@
 ﻿using UniRx;
 
-namespace InternalAssets.Codebase.Gameplay.Stats
+namespace InternalAssets.Codebase.Library.MonoEntity.Stats
 {
     public interface IEntityStatsCollector
     {

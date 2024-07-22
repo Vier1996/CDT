@@ -3,7 +3,7 @@ using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UniRx;
 
-namespace InternalAssets.Codebase.Gameplay.Stats
+namespace InternalAssets.Codebase.Library.MonoEntity.Stats
 {
     public class EntityStatsCollectorMono : SerializedMonoBehaviour, IEntityStatsCollector
     {

@@ -1,7 +1,8 @@
 ﻿using System;
+using InternalAssets.Codebase.Library.MonoEntity.Stats;
 using UnityEngine;
 
-namespace InternalAssets.Codebase.Gameplay.Stats.CatStats
+namespace InternalAssets.Codebase.Gameplay.Entities.Cats.CatStats
 {
     [Serializable]
     public class CatNameStat : IEntityStat
