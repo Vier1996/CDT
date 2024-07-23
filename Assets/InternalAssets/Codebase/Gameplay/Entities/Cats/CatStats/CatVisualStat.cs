@@ -32,6 +32,8 @@ namespace InternalAssets.Codebase.Gameplay.Entities.Cats.CatStats
         [field: SerializeField] public Color LipsColor = Color.white;
         [field: SerializeField] public Color MouthColor = Color.white;
         [field: SerializeField] public Color TeethColor = Color.white;
+        
+        public CatVisualStat() { }
     }
 
     public class CatVisualStatAttribute : Attribute

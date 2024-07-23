@@ -9,6 +9,8 @@ namespace InternalAssets.Codebase.Gameplay.Entities.Cats.CatStats
     {
         [field: SerializeField] public string Name { get; private set; }
 
+        public CatNameStat() { }
+
         public CatNameStat(string name)
         {
             Name = name;

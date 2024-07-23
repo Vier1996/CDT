@@ -19,6 +19,8 @@ namespace InternalAssets.Codebase.Library.MonoEntity.EntityComponent
 
             return containsComponent;
         }
+        
+        public T GetAbstractComponent<T>() => (T)_entityComponents[typeof(T).Name];
 
         public Dictionary<string, object> GetAllComponents() => _entityComponents;
 

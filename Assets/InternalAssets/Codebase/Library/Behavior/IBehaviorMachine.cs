@@ -1,5 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using InternalAssets.Codebase.Gameplay.Entities.Cats.CatBehavior;
 using InternalAssets.Codebase.Library.ExceptionExtension;
+using InternalAssets.Codebase.Library.Reflection;
+using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using Sirenix.Utilities;
 using UniRx;
@@ -16,9 +22,9 @@ namespace InternalAssets.Codebase.Library.Behavior
     [Serializable]
     public class BehaviorStateProperty
     {
-        [field: OdinSerialize] public Type BehaviorType { get; private set; }
+        [field: OdinSerialize, ValueDropdown(nameof(GetSubTypes))] public Type BehaviorType { get; private set; }
         [field: OdinSerialize] public IBehaviorComponents Components { get; private set; }
-
+        
         public BehaviorStateProperty(Type behaviorType, IBehaviorComponents components)
         {
             if (behaviorType.InheritsFrom(typeof(IBehavior)) == false)
@@ -27,5 +33,8 @@ namespace InternalAssets.Codebase.Library.Behavior
             BehaviorType = behaviorType;
             Components = components;
         }
+
+        //private IEnumerable<Type> GetSubTypes<T>() => typeof(T).GetAllInheritsTypes();
+        private IEnumerable<Type> GetSubTypes() => typeof(CatBehaviorState).GetAllInheritsTypes();
     }
 }

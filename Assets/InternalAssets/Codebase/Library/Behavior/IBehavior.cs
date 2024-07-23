@@ -1,4 +1,5 @@
 ﻿using System;
+using Cysharp.Threading.Tasks;
 using InternalAssets.Codebase.Library.MonoEntity.EntityComponent;
 
 namespace InternalAssets.Codebase.Library.Behavior
@@ -11,6 +12,6 @@ namespace InternalAssets.Codebase.Library.Behavior
         
         public void Enter(IBehaviorComponents behaviorComponents = null);
 
-        public void Exit();
+        public UniTask Exit();
     }
 }

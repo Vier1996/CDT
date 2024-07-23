@@ -1,4 +1,5 @@
 ﻿using System;
+using Cysharp.Threading.Tasks;
 using InternalAssets.Codebase.Gameplay.Entities.Cats.Enums;
 using InternalAssets.Codebase.Gameplay.Navigation;
 using InternalAssets.Codebase.Library.Behavior;
@@ -30,28 +31,33 @@ namespace InternalAssets.Codebase.Gameplay.Entities.Cats.CatBehavior.BehaviorTyp
             if (_transitionBehaviorComponents is null) 
                 throw this.TypeCast<IBehaviorComponents, TransitionBehaviorComponents>();
             
-            _catAnimator.SetAnimation(CatAnimationType.move_run_f, force: true);
+            _catAnimator.PlayAnimation(CatAnimationType.move_run_f, force: true);
             
             _translateComponent.Translate(
-                targetTransform: _transitionBehaviorComponents.Target,
-                completeCallback: Exit);
+                targetPosition: _transitionBehaviorComponents.TargetPoint,
+                completeCallback: OnTransitionTargetReached);
         }
 
-        public override void Exit()
+        private void OnTransitionTargetReached()
         {
             _transitionBehaviorComponents?.Reason?.CompleteEvent?.Invoke();
+        }
+
+        public override UniTask Exit()
+        {            
+            return UniTask.CompletedTask;
         }
     }
 
     [Serializable]
     public class TransitionBehaviorComponents : IBehaviorComponents
     {
-        public readonly Transform Target;
+        public readonly Vector3 TargetPoint;
         public readonly ICatTransitionReason Reason;
 
-        public TransitionBehaviorComponents(Transform target, ICatTransitionReason reason)
+        public TransitionBehaviorComponents(Vector3 targetPoint, ICatTransitionReason reason)
         {
-            Target = target;
+            TargetPoint = targetPoint;
             Reason = reason;
         }
     }

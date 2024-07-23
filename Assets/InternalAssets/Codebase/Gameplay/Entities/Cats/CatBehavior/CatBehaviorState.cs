@@ -1,4 +1,5 @@
 ﻿using System;
+using Cysharp.Threading.Tasks;
 using InternalAssets.Codebase.Library.Behavior;
 using InternalAssets.Codebase.Library.MonoEntity.EntityComponent;
 using UnityEngine;
@@ -18,6 +19,6 @@ namespace InternalAssets.Codebase.Gameplay.Entities.Cats.CatBehavior
         
         public abstract void Enter(IBehaviorComponents behaviorComponents = null);
 
-        public abstract void Exit();
+        public abstract UniTask Exit();
     }
 }

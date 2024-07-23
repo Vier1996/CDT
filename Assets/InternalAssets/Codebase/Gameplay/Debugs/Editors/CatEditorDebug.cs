@@ -1,5 +1,7 @@
-﻿using InternalAssets.Codebase.Gameplay.Entities.Cats;
+﻿using ACS.Core.ServicesContainer;
+using InternalAssets.Codebase.Gameplay.Entities.Cats;
 using InternalAssets.Codebase.Gameplay.Entities.Cats.CatBehavior.BehaviorTypes.Transition;
+using InternalAssets.Codebase.Gameplay.Entities.Cats.Systems.Brain;
 using InternalAssets.Codebase.Library.Behavior;
 using InternalAssets.Codebase.Library.MonoEntity.Interfaces;
 using Sirenix.OdinInspector;
@@ -23,9 +25,17 @@ namespace InternalAssets.Codebase.Gameplay.Debugs.Editors
         private void TestTransitionBehavior(CatEntity entity, Transform target)
         {
             if (entity.Components.TryGetAbstractComponent(out IBehaviorMachine behaviorMachine))
-                behaviorMachine.Notify(new BehaviorStateProperty(typeof(CatTransitionToPointBehavior), new TransitionBehaviorComponents(target, null)));
+                behaviorMachine.Notify(new BehaviorStateProperty(typeof(CatTransitionToPointBehavior), new TransitionBehaviorComponents(target.position, null)));
             else
                 Debug.Log("Can not get BehaviorMachine with [ICatState]");
+        }
+
+        [Button]
+        private void TriggerBrain(CatEntity entity)
+        {
+            ServiceContainer.Global.Get(out CatsBrainSystem system);
+            
+            system.TriggerCat(entity);
         }
     }
 #endif

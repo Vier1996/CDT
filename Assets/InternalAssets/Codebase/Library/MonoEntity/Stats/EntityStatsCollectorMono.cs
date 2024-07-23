@@ -25,6 +25,6 @@ namespace InternalAssets.Codebase.Library.MonoEntity.Stats
         
         public ReactiveProperty<IEntityStat> GetOrCreateStat<T>() where T : IEntityStat => _entityStatsCollector.GetOrCreateStat<T>();
 
-        public bool TryModifyOrCreate(IEntityStat stat, bool addIfNotPresent = false) => _entityStatsCollector.TryModifyOrCreate(stat, addIfNotPresent);
+        public bool TryModifyOrCreate(IEntityStat stat, bool addIfNotPresent = true) => _entityStatsCollector.TryModifyOrCreate(stat, addIfNotPresent);
     }
 }

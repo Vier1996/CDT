@@ -30,17 +30,18 @@ namespace InternalAssets.Codebase.Library.Behavior
         
         public void Notify(BehaviorStateProperty property)
         {
-            if(TryChangeBehavior(property))
-                _stateChangedProperty.Value = _currentBehaviorState;
+            TryChangeBehavior(property);
+            
+            _stateChangedProperty.Value = _currentBehaviorState;
         }
 
-        private bool TryChangeBehavior(BehaviorStateProperty property)
+        private async void TryChangeBehavior(BehaviorStateProperty property)
         {
-            _currentBehaviorState?.Exit();
+            if(_currentBehaviorState != null)
+                await _currentBehaviorState.Exit();
+            
             _currentBehaviorState = _behaviorStates[property.BehaviorType];
             _currentBehaviorState.Enter(property.Components);
-            
-            return true;
         }
     }
 }
