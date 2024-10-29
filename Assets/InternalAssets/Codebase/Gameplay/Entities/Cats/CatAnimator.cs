@@ -6,7 +6,6 @@ using InternalAssets.Codebase.Library.ExceptionExtension;
 using InternalAssets.Codebase.Library.Extension;
 using InternalAssets.Codebase.Library.Extension.Reflection;
 using Sirenix.OdinInspector;
-using UniRx;
 using UnityEngine;
 
 namespace InternalAssets.Codebase.Gameplay.Entities.Cats
@@ -28,7 +27,7 @@ namespace InternalAssets.Codebase.Gameplay.Entities.Cats
             await RX.DoValue(0f, attribute.AnimationLength, attribute.AnimationLength).ToUniTask();
         }
 
-        public void PlayAnimation(CatAnimationType catAnimationType, bool force = false)
+        [Button] public void PlayAnimation(CatAnimationType catAnimationType, bool force = false)
         {
             SetAnimation(catAnimationType, force);
         }

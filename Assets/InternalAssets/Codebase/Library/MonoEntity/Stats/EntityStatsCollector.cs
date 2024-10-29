@@ -24,7 +24,7 @@ namespace InternalAssets.Codebase.Library.MonoEntity.Stats
 
             return _entityStats[statType];
         }
-
+        
         public bool TryModifyOrCreate(IEntityStat stat, bool addIfNotPresent = true)
         {
             Type statType = stat.GetType();

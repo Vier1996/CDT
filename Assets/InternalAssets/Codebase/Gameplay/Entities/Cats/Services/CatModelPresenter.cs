@@ -3,6 +3,8 @@ using InternalAssets.Codebase.Gameplay.Entities.Cats.CatStats;
 using InternalAssets.Codebase.Library.MonoEntity.Entities;
 using InternalAssets.Codebase.Library.MonoEntity.Interfaces;
 using InternalAssets.Codebase.Library.MonoEntity.Stats;
+using InternalAssets.Codebase.Library.Reflection;
+using Sirenix.OdinInspector;
 using UniRx;
 using UnityEngine;
 
@@ -35,36 +37,35 @@ namespace InternalAssets.Codebase.Gameplay.Entities.Cats.Services
         {
             if(stat is not CatVisualStat visualStat) return;
             
-            _catModelMaterial.SetInt("SWT - Eye_R from Eye_L", visualStat.EqualEyesColor ? 1 : 0);
-            _catModelMaterial.SetColor("Eyes_L_center", visualStat.LeftEyeColor);
-            _catModelMaterial.SetColor("Eyes_R_center", visualStat.RightEyeColor);
-            _catModelMaterial.SetColor("Eyes_pupil", visualStat.EyesPupilColor);
-            _catModelMaterial.SetColor("Eyes_blick", visualStat.EyesPupilBlinkColor);
-            _catModelMaterial.SetInt("SWT - Body_down form Body", visualStat.MonoColoredBody ? 1 : 0);
-            _catModelMaterial.SetColor("Body", visualStat.BodyUpColor);
-            _catModelMaterial.SetColor("Body_down", visualStat.BodyDownColor);
-            _catModelMaterial.SetInt("SWT - Tail from Body_down", visualStat.UniqueTailColor ? 1 : 0);
-            _catModelMaterial.SetColor("Tail", visualStat.TailColor);
-            _catModelMaterial.SetInt("SWT - Leg from Body_down", visualStat.UniquePawsColor ? 1 : 0);
-            _catModelMaterial.SetColor("Legs", visualStat.PawsColor);
-            _catModelMaterial.SetColor("Legs_paw", visualStat.PawPadsColor);
-            _catModelMaterial.SetInt("SWT - Ears_front form Body_down", visualStat.MonoColoredEarFront ? 1 : 0);
-            _catModelMaterial.SetColor("Ears_front", visualStat.EarFrontColor);
-            _catModelMaterial.SetInt("SWT - Ears_back from Body", visualStat.MonoColoredEarBack ? 1 : 0);
-            _catModelMaterial.SetColor("Ears_back", visualStat.EarBackColor);
-            _catModelMaterial.SetInt("SWT - Face_nose_below from Body_down", visualStat.TineNose ? 1 : 0);
-            _catModelMaterial.SetColor("Face_nose", visualStat.NoseFrontColor);
-            _catModelMaterial.SetColor("Face_nose_below", visualStat.NoseBackColor);
-            _catModelMaterial.SetColor("Leg_Claws", visualStat.LegClawsColor);
-            _catModelMaterial.SetColor("Eyes_lid", visualStat.EyesLidColor);
-            _catModelMaterial.SetColor("Mouth_Lips", visualStat.LipsColor);
-            _catModelMaterial.SetColor("Mouth", visualStat.MouthColor);
-            _catModelMaterial.SetColor("Mouth_teeth", visualStat.TeethColor);
+            _catModelMaterial.SetInt(visualStat.GetId(nameof(visualStat.EqualEyesColor)), visualStat.EqualEyesColor ? 1 : 0);
+            _catModelMaterial.SetColor(visualStat.GetId(nameof(visualStat.LeftEyeColor)), visualStat.LeftEyeColor);
+            _catModelMaterial.SetColor(visualStat.GetId(nameof(visualStat.RightEyeColor)), visualStat.RightEyeColor);
+            _catModelMaterial.SetColor(visualStat.GetId(nameof(visualStat.EyesPupilColor)), visualStat.EyesPupilColor);
+            _catModelMaterial.SetColor(visualStat.GetId(nameof(visualStat.EyesPupilBlinkColor)), visualStat.EyesPupilBlinkColor);
+            _catModelMaterial.SetInt(visualStat.GetId(nameof(visualStat.MonoColoredBody)), visualStat.MonoColoredBody ? 1 : 0);
+            _catModelMaterial.SetColor(visualStat.GetId(nameof(visualStat.BodyUpColor)), visualStat.BodyUpColor);
+            _catModelMaterial.SetColor(visualStat.GetId(nameof(visualStat.BodyDownColor)), visualStat.BodyDownColor);
+            _catModelMaterial.SetInt(visualStat.GetId(nameof(visualStat.UniqueTailColor)), visualStat.UniqueTailColor ? 1 : 0);
+            _catModelMaterial.SetColor(visualStat.GetId(nameof(visualStat.TailColor)), visualStat.TailColor);
+            _catModelMaterial.SetInt(visualStat.GetId(nameof(visualStat.UniquePawsColor)), visualStat.UniquePawsColor ? 1 : 0);
+            _catModelMaterial.SetColor(visualStat.GetId(nameof(visualStat.PawsColor)), visualStat.PawsColor);
+            _catModelMaterial.SetColor(visualStat.GetId(nameof(visualStat.PawPadsColor)), visualStat.PawPadsColor);
+            _catModelMaterial.SetInt(visualStat.GetId(nameof(visualStat.MonoColoredEarFront)), visualStat.MonoColoredEarFront ? 1 : 0);
+            _catModelMaterial.SetColor(visualStat.GetId(nameof(visualStat.EarFrontColor)), visualStat.EarFrontColor);
+            _catModelMaterial.SetInt(visualStat.GetId(nameof(visualStat.MonoColoredEarBack)), visualStat.MonoColoredEarBack ? 1 : 0);
+            _catModelMaterial.SetColor(visualStat.GetId(nameof(visualStat.EarBackColor)), visualStat.EarBackColor);
+            _catModelMaterial.SetInt(visualStat.GetId(nameof(visualStat.TineNose)), visualStat.TineNose ? 1 : 0);
+            _catModelMaterial.SetColor(visualStat.GetId(nameof(visualStat.NoseFrontColor)), visualStat.NoseFrontColor);
+            _catModelMaterial.SetColor(visualStat.GetId(nameof(visualStat.NoseBackColor)), visualStat.NoseBackColor);
+            _catModelMaterial.SetColor(visualStat.GetId(nameof(visualStat.LegClawsColor)), visualStat.LegClawsColor);
+            _catModelMaterial.SetColor(visualStat.GetId(nameof(visualStat.EyesLidColor)), visualStat.EyesLidColor);
+            _catModelMaterial.SetColor(visualStat.GetId(nameof(visualStat.LipsColor)), visualStat.LipsColor);
+            _catModelMaterial.SetColor(visualStat.GetId(nameof(visualStat.MouthColor)), visualStat.MouthColor);
+            _catModelMaterial.SetColor(visualStat.GetId(nameof(visualStat.TeethColor)), visualStat.TeethColor);
             
             _mainRenderer.material = _catModelMaterial;
             _leftEyeRenderer.material = _catModelMaterial;
             _rightEyeRenderer.material = _catModelMaterial;
-
         }
     }
 }

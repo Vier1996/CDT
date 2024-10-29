@@ -36,6 +36,12 @@ namespace InternalAssets.Codebase.Gameplay.Navigation
 
             while (limit > 0)
             {
+                if (_providers.Count <= 0)
+                {
+                    limit--;
+                    continue;
+                }
+                
                 outputPoint = _providers.Random().GetAvailablePoint();
 
                 if (outputPoint.Equals(default) == false)
