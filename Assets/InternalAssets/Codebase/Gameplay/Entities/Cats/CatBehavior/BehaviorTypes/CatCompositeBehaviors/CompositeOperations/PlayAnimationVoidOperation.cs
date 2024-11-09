@@ -8,7 +8,7 @@ using UnityEngine;
 namespace InternalAssets.Codebase.Gameplay.Entities.Cats
 {
     [Serializable]
-    public class PlayLoopedAnimationOperation : ICompositeBehaviorOperation
+    public class PlayAnimationVoidOperation : ICompositeBehaviorOperation
     {
         [SerializeField] private CatAnimationType _animationType;
 
@@ -28,7 +28,7 @@ namespace InternalAssets.Codebase.Gameplay.Entities.Cats
         {
             _catAnimator.PlayAnimation(_animationType, force: true);
             
-            return UniTask.Never(cancellationToken);
+            return UniTask.CompletedTask;
         }
     }
 }
