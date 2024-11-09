@@ -52,11 +52,19 @@ namespace InternalAssets.Codebase.Gameplay.Navigation
 
             return false;
         }
+
+        public bool TryGetPointById(string id, out Vector3 outputPoint)
+        {
+            outputPoint = Vector3.zero;
+            
+            return false;
+        }
     }
 
     public interface INavigationService
     {
         public bool TryGetRandomPoint(out Vector3 outputPoint);
+        public bool TryGetPointById(string id, out Vector3 outputPoint);
     }
     
     public interface INavigationServiceConstructor

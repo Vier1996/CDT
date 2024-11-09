@@ -9,9 +9,12 @@ namespace InternalAssets.Codebase.Gameplay.Generators.Variations.CatsGenerating
 {
     public class CatGenerator : IGenerator<CatGeneratedData>
     {
-        private readonly CatBehaviorsConfig _config;
+        private readonly CatColorConfig _colorConfig;
 
-        public CatGenerator() => _config = CatBehaviorsConfig.GetInstance();
+        public CatGenerator()
+        {
+            _colorConfig = CatDesignConfig.GetInstance().ColorConfig;
+        }
 
         public CatGeneratedData Generate() =>
             new()
@@ -30,40 +33,40 @@ namespace InternalAssets.Codebase.Gameplay.Generators.Variations.CatsGenerating
             bool monoColoredFront = WeightRandom.DoChance(75f);
             bool monoColoredBack = WeightRandom.DoChance(75f);
             
-            Color eyesColor = _config.ColorPalette.EyeColorGradient.GetColor();
-            Color bodyUpColor = _config.ColorPalette.BodyUpColorGradient.GetColor();
-            Color tailColor = _config.ColorPalette.TailColorGradient.GetColor();
-            Color pawsColor = _config.ColorPalette.PawsColorGradient.GetColor();
-            Color earFrontColor = _config.ColorPalette.EarFrontColorGradient.GetColor();
-            Color earBackColor = _config.ColorPalette.EarBackColorGradient.GetColor();
+            Color eyesColor = _colorConfig.EyeColorGradient.GetColor();
+            Color bodyUpColor = _colorConfig.BodyUpColorGradient.GetColor();
+            Color tailColor = _colorConfig.TailColorGradient.GetColor();
+            Color pawsColor = _colorConfig.PawsColorGradient.GetColor();
+            Color earFrontColor = _colorConfig.EarFrontColorGradient.GetColor();
+            Color earBackColor = _colorConfig.EarBackColorGradient.GetColor();
                 
             return new CatVisualStat()
             {
                 EqualEyesColor = isEqualEyesColor,
                 LeftEyeColor = eyesColor,
-                RightEyeColor = isEqualEyesColor ? eyesColor : _config.ColorPalette.EyeColorGradient.GetColor(),
-                EyesPupilColor = _config.ColorPalette.EyePupilColorGradient.GetColor(),
-                EyesPupilBlinkColor = _config.ColorPalette.EyePupilBlinkColorGradient.GetColor(),
+                RightEyeColor = isEqualEyesColor ? eyesColor : _colorConfig.EyeColorGradient.GetColor(),
+                EyesPupilColor = _colorConfig.EyePupilColorGradient.GetColor(),
+                EyesPupilBlinkColor = _colorConfig.EyePupilBlinkColorGradient.GetColor(),
                 MonoColoredBody = monoColoredBody,
                 BodyUpColor = bodyUpColor,
-                BodyDownColor = monoColoredBody ? bodyUpColor : _config.ColorPalette.BodyDownColorGradient.GetColor(),
+                BodyDownColor = monoColoredBody ? bodyUpColor : _colorConfig.BodyDownColorGradient.GetColor(),
                 UniqueTailColor = uniqueTailColor,
                 TailColor = tailColor,
                 UniquePawsColor = uniquePadsColor,
                 PawsColor = pawsColor,
-                PawPadsColor = _config.ColorPalette.PawsPadsColorGradient.GetColor(),
+                PawPadsColor = _colorConfig.PawsPadsColorGradient.GetColor(),
                 MonoColoredEarFront = monoColoredFront,
                 EarFrontColor = earFrontColor,
                 MonoColoredEarBack = monoColoredBack,
                 EarBackColor = earBackColor,
                 TineNose = WeightRandom.DoChance(50f),
-                NoseFrontColor = _config.ColorPalette.NoseFrontColorGradient.GetColor(),
-                NoseBackColor = _config.ColorPalette.NoseBackColorGradient.GetColor(),
-                LegClawsColor = _config.ColorPalette.LegClawsColorGradient.GetColor(),
-                EyesLidColor = _config.ColorPalette.EyesLidColorGradient.GetColor(),
-                LipsColor = _config.ColorPalette.LipsColorGradient.GetColor(),
-                MouthColor = _config.ColorPalette.MouthColorGradient.GetColor(),
-                TeethColor = _config.ColorPalette.TeethColorGradient.GetColor(),
+                NoseFrontColor = _colorConfig.NoseFrontColorGradient.GetColor(),
+                NoseBackColor = _colorConfig.NoseBackColorGradient.GetColor(),
+                LegClawsColor = _colorConfig.LegClawsColorGradient.GetColor(),
+                EyesLidColor = _colorConfig.EyesLidColorGradient.GetColor(),
+                LipsColor = _colorConfig.LipsColorGradient.GetColor(),
+                MouthColor = _colorConfig.MouthColorGradient.GetColor(),
+                TeethColor = _colorConfig.TeethColorGradient.GetColor(),
             };
         }
     }

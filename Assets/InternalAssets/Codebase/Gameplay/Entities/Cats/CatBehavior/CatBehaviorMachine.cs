@@ -10,16 +10,16 @@ namespace InternalAssets.Codebase.Gameplay.Entities.Cats.CatBehavior
     {
         public void Bootstrap(Entity entity)
         {
-            CatBehaviorsConfig catBehaviorsConfig = CatBehaviorsConfig.GetInstance();
+            CatDesignConfig catDesign = CatDesignConfig.GetInstance();
             
-            foreach (ScriptableBehavior enemyBehavior in catBehaviorsConfig.Behaviors)
+            foreach (ScriptableBehavior enemyBehavior in catDesign.BehaviorsConfig.Behaviors)
             {
                 Type targetBehaviorType = enemyBehavior.Behavior.GetType();
 
                 if (Activator.CreateInstance(targetBehaviorType, args: enemyBehavior.Behavior) is not IBehavior behavior)
                     throw new ArgumentException("Разраб где-то обосрался...");
 
-                AppendBehavior(targetBehaviorType, behavior, entity.Components);
+                AppendBehavior(behavior, entity.Components);
             }
         }
         

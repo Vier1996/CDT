@@ -11,14 +11,14 @@ namespace InternalAssets.Codebase.Library.Behavior
         public IReadOnlyReactiveProperty<IBehavior> StateChangedProperty => _stateChangedProperty;
         
         private readonly ReactiveProperty<IBehavior> _stateChangedProperty = new ();
-        private readonly Dictionary<Type, IBehavior> _behaviorStates = new();
+        private readonly Dictionary<string, IBehavior> _behaviorStates = new();
         private IBehavior _currentBehaviorState;
         
         public virtual void Dispose() => _currentBehaviorState?.Dispose();
 
-        public void AppendBehavior(Type behaviorType, IBehavior behavior, EntityComponents components = null)
+        public void AppendBehavior(IBehavior behavior, EntityComponents components = null)
         {
-            if(_behaviorStates.TryAdd(behaviorType, behavior))
+            if(_behaviorStates.TryAdd(behavior.BehaviorId, behavior))
                 _behaviorStates.Last().Value.Construct(this, components);
         }
 
@@ -40,7 +40,7 @@ namespace InternalAssets.Codebase.Library.Behavior
             if(_currentBehaviorState != null)
                 await _currentBehaviorState.Exit();
             
-            _currentBehaviorState = _behaviorStates[property.BehaviorType];
+            _currentBehaviorState = _behaviorStates[property.BehaviorId];
             _currentBehaviorState.Enter(property.Components);
         }
     }

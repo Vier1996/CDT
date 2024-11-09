@@ -22,19 +22,19 @@ namespace InternalAssets.Codebase.Library.Behavior
     [Serializable]
     public class BehaviorStateProperty
     {
-        [field: OdinSerialize, ValueDropdown(nameof(GetSubTypes))] public Type BehaviorType { get; private set; }
+        [field: OdinSerialize] public string BehaviorId { get; private set; }
         [field: OdinSerialize] public IBehaviorComponents Components { get; private set; }
         
-        public BehaviorStateProperty(Type behaviorType, IBehaviorComponents components)
+        public BehaviorStateProperty(CatBehaviorType behaviorId, IBehaviorComponents components)
         {
-            if (behaviorType.InheritsFrom(typeof(IBehavior)) == false)
-                throw this.TypeCast<Type, IBehavior>();
-            
-            BehaviorType = behaviorType;
+            BehaviorId = behaviorId.ToString();
             Components = components;
         }
-
-        //private IEnumerable<Type> GetSubTypes<T>() => typeof(T).GetAllInheritsTypes();
-        private IEnumerable<Type> GetSubTypes() => typeof(CatBehaviorState).GetAllInheritsTypes();
+        
+        public BehaviorStateProperty(string behaviorId, IBehaviorComponents components)
+        {
+            BehaviorId = behaviorId;
+            Components = components;
+        }
     }
 }

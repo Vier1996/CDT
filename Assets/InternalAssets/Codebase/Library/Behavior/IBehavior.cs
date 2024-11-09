@@ -6,6 +6,7 @@ namespace InternalAssets.Codebase.Library.Behavior
 {
     public interface IBehavior : IDisposable
     {
+        public string BehaviorId { get; set; }
         public bool IsDefaultBehavior { get; set; }
 
         public void Construct(IBehaviorMachine machine, EntityComponents components);

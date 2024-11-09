@@ -7,7 +7,7 @@ namespace InternalAssets.Codebase.Library.Extension
 {
     public static class Navigation
     {
-        public static IObservable<bool> MoveTo(this NavMeshAgent agent, Vector3 targetPosition, float maxDistanceRadius = 2f, float remainingDistance = 0.1f, Action completeCallback = null) =>
+        public static IObservable<bool> MoveTo(this NavMeshAgent agent, Vector3 targetPosition, float maxDistanceRadius = 2f, float remainingDistance = 0.1f) =>
             Observable.Create<bool>(observer =>
             {
                 if (NavMesh.SamplePosition(targetPosition, out NavMeshHit hit, maxDistanceRadius, 1) == false)
@@ -20,7 +20,6 @@ namespace InternalAssets.Codebase.Library.Extension
                 {
                     if (agent == null)
                     {
-                        completeCallback = null;
                         observer.OnCompleted();
                         return;
                     }
@@ -32,7 +31,6 @@ namespace InternalAssets.Codebase.Library.Extension
                     else
                     {
                         agent.isStopped = true;
-                        completeCallback?.Invoke();
                         
                         observer.OnNext(true);
                         observer.OnCompleted();

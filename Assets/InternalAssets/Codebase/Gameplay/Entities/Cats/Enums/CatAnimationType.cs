@@ -101,6 +101,8 @@ namespace InternalAssets.Codebase.Gameplay.Entities.Cats.Enums
         [CatAnimationType(1.33f)] rest_sleep_from,
         [CatAnimationType(2.667f)] rest_sleep_idle,
         [CatAnimationType(2.667f)] rest_sleep_to,
+        
+        [CatAnimationType(0.8f)] custom_walk_forward,
     }
 
     public class CatAnimationTypeAttribute : Attribute

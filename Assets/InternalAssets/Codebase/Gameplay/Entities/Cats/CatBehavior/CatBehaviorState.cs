@@ -6,8 +6,10 @@ using UnityEngine;
 
 namespace InternalAssets.Codebase.Gameplay.Entities.Cats.CatBehavior
 {
+    [Serializable]
     public abstract class CatBehaviorState : ICatBehavior
     {
+        [field: SerializeField] public string BehaviorId { get; set; } = string.Empty;
         [field: SerializeField] public bool IsDefaultBehavior { get; set; }
         
         protected EntityComponents EntityComponents;
@@ -18,7 +20,6 @@ namespace InternalAssets.Codebase.Gameplay.Entities.Cats.CatBehavior
         public virtual void Dispose() { }
         
         public abstract void Enter(IBehaviorComponents behaviorComponents = null);
-
         public abstract UniTask Exit();
     }
 }

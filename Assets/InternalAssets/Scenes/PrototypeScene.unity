@@ -2194,7 +2194,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4113276933412757305, guid: a0e3d304f97ee5648ad60b9223f64add, type: 3}
       propertyPath: m_Name
-      value: Alexplay - [CORE]
+      value: '[CORE]'
       objectReference: {fileID: 0}
     - target: {fileID: 4113276933412757307, guid: a0e3d304f97ee5648ad60b9223f64add, type: 3}
       propertyPath: m_RootOrder
@@ -3133,6 +3133,18 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 5953715424404146691, guid: 3dc1a86598ce1bd4f8c7e103b923e486, type: 3}
+    - target: {fileID: 5953715424404146691, guid: 3dc1a86598ce1bd4f8c7e103b923e486, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5953715424404146691, guid: 3dc1a86598ce1bd4f8c7e103b923e486, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.data[0]
+      value: '"path":"_entityStats","length":1'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5953715424404146691, guid: 3dc1a86598ce1bd4f8c7e103b923e486, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6006985991927023377, guid: 3dc1a86598ce1bd4f8c7e103b923e486, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -83.52743

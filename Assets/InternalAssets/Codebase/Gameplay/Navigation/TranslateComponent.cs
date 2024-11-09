@@ -1,6 +1,8 @@
 using System;
+using System.Threading;
+using Cysharp.Threading.Tasks;
+using InternalAssets.Codebase.Library.Async;
 using InternalAssets.Codebase.Library.Extension;
-using UniRx;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,28 +12,26 @@ namespace InternalAssets.Codebase.Gameplay.Navigation
     {
         [SerializeField] private NavMeshAgent _agentOfEnenty;
 
-        private IDisposable _navigationDisposable;
-
-        public void Translate(Transform targetTransform, bool force = false, Action completeCallback = null) => 
-            Translate(targetTransform.position, force, completeCallback);
-
-        public void Translate(Vector3 targetPosition, bool force = false, Action completeCallback = null)
+        private bool _isBusy = false;
+        
+        public async UniTask Translate(Vector3 targetPosition, bool force = false)
         {
-            if (force) _navigationDisposable?.Dispose();
-            
-            if(_navigationDisposable != null) return;
-            
-            completeCallback += OnArrived;
-            
-            _navigationDisposable = _agentOfEnenty.MoveTo(targetPosition, completeCallback: completeCallback).Subscribe();
-        }
+            if (_isBusy && force == false) return;
 
-        public void StopTranslate() => OnArrived();
+            _isBusy = true;
 
-        private void OnArrived()
-        {
-            _navigationDisposable?.Dispose();
-            _navigationDisposable = null;
+            try
+            {
+                await _agentOfEnenty
+                    .MoveTo(targetPosition)
+                    .ToUniTask(cancellationToken: this.GetCancellationTokenOnDestroy());
+            }
+            catch (OperationCanceledException e)
+            {
+                return;
+            }
+            
+            _isBusy = false;
         }
     }
 }
