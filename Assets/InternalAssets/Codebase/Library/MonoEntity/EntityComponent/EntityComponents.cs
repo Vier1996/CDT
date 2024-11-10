@@ -7,9 +7,16 @@ namespace InternalAssets.Codebase.Library.MonoEntity.EntityComponent
     [Serializable]
     public abstract class EntityComponents
     {
-        private readonly Dictionary<string, object> _entityComponents = new();
+        private Dictionary<string, object> _entityComponents = new();
 
-        public abstract EntityComponents Declare(Entity abstractEntity);
+        public virtual EntityComponents Declare(Entity abstractEntity)
+        {
+            _entityComponents ??= new();
+            
+            Add(abstractEntity);
+            
+            return this;
+        }
         
         public bool TryGetAbstractComponent<T>(out T component)
         { 

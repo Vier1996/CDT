@@ -7,10 +7,12 @@ namespace InternalAssets.Codebase.Gameplay.Navigation
 {
     public class NavigationService : INavigationService, INavigationServiceConstructor, IDisposable
     {
+        private readonly List<NavigationPoint> _navigationPoints;
         private readonly List<INavigationPointProvider> _providers;
         
         public NavigationService()
         {
+            _navigationPoints = new List<NavigationPoint>();
             _providers = new List<INavigationPointProvider>();
         }
         
@@ -26,6 +28,33 @@ namespace InternalAssets.Codebase.Gameplay.Navigation
         {
             if(_providers.Contains(provider))
                 _providers.Remove(provider);
+        }
+
+        public void BindPoint(NavigationPoint point)
+        {
+            if(_navigationPoints.Contains(point) == false)
+                _navigationPoints.Add(point);
+        }
+
+        public void UnbindPoint(NavigationPoint point)
+        {
+            if(_navigationPoints.Contains(point))
+                _navigationPoints.Remove(point);
+        }
+
+        public bool TryGetPoint(Vector3 inputPosition, out Vector3 outputPoint)
+        {
+            outputPoint = default;
+            
+            foreach (var provider in _providers)
+            {
+                outputPoint = provider.GetAvailablePoint(inputPosition, 0f, false);
+
+                if (outputPoint.Equals(default) == false)
+                    return true;
+            }
+
+            return false;
         }
 
         public bool TryGetRandomPoint(out Vector3 outputPoint)
@@ -63,6 +92,7 @@ namespace InternalAssets.Codebase.Gameplay.Navigation
 
     public interface INavigationService
     {
+        public bool TryGetPoint(Vector3 inputPosition, out Vector3 outputPoint);
         public bool TryGetRandomPoint(out Vector3 outputPoint);
         public bool TryGetPointById(string id, out Vector3 outputPoint);
     }
@@ -71,5 +101,8 @@ namespace InternalAssets.Codebase.Gameplay.Navigation
     {
         public void BindProvider(INavigationPointProvider provider);
         public void UnbindProvider(INavigationPointProvider provider);
+        
+        public void BindPoint(NavigationPoint point);
+        public void UnbindPoint(NavigationPoint point);
     }
 }

@@ -23,7 +23,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: <Behavior>k__BackingField
       Entry: 7
-      Data: 0|InternalAssets.Codebase.Gameplay.Entities.Cats.CatCompositeBehavior,
+      Data: 0|InternalAssets.Codebase.Gameplay.Entities.Cats.CatBehavior.BehaviorTypes.CatCompositeBehavior,
         Assembly-CSharp
     - Name: <BehaviorId>k__BackingField
       Entry: 1
@@ -33,38 +33,45 @@ MonoBehaviour:
       Data: false
     - Name: <BehaviorOperations>k__BackingField
       Entry: 7
-      Data: 1|System.Collections.Generic.List`1[[InternalAssets.Codebase.Gameplay.Entities.Cats.ICompositeBehaviorOperation,
+      Data: 1|System.Collections.Generic.List`1[[InternalAssets.Codebase.Gameplay.CompositeOperations.ICompositeOperation,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 3
+      Data: 4
     - Name: 
       Entry: 7
-      Data: 2|InternalAssets.Codebase.Gameplay.Entities.Cats.PlayAnimationOperation,
+      Data: 2|InternalAssets.Codebase.Gameplay.CompositeOperations.Variations.PlayAnimationOperation,
         Assembly-CSharp
     - Name: _animationType
-      Entry: 3
-      Data: 2
+      Entry: 1
+      Data: action_digging
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 3|InternalAssets.Codebase.Gameplay.Entities.Cats.PlayAnimationOperation,
+      Data: 3|InternalAssets.Codebase.Gameplay.CompositeOperations.Variations.PlayNonAwaitableAnimationOperation,
         Assembly-CSharp
     - Name: _animationType
-      Entry: 3
-      Data: 86
+      Entry: 1
+      Data: custom_walk_forward
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 4|InternalAssets.Codebase.Gameplay.Entities.Cats.PlayAnimationOperation,
+      Data: 4|InternalAssets.Codebase.Gameplay.CompositeOperations.Variations.RandomMovementOperation,
+        Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 5|InternalAssets.Codebase.Gameplay.CompositeOperations.Variations.PlayAnimationOperation,
         Assembly-CSharp
     - Name: _animationType
-      Entry: 3
-      Data: 84
+      Entry: 1
+      Data: rest_sit_from
     - Name: 
       Entry: 8
       Data: 

@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using InternalAssets.Codebase.Gameplay.Entities.Base;
 using InternalAssets.Codebase.Gameplay.Entities.Cats.Enums;
 using InternalAssets.Codebase.Library.ExceptionExtension;
 using InternalAssets.Codebase.Library.Extension;
@@ -10,32 +11,31 @@ using UnityEngine;
 
 namespace InternalAssets.Codebase.Gameplay.Entities.Cats
 {
-    public class CatAnimator : MonoBehaviour
+    public class CatAnimator : MonoBehaviour, IEntityAnimator
     {
         [SerializeField] private Animator _animator;
         
         private bool _isDisabled = false;
-        private CatAnimationType _currentAnimationType;
+        private string _currentAnimationType;
 
-        public async UniTask PlayAnimationAsTask(CatAnimationType catAnimationType, bool force = false)
+        public async UniTask PlayAnimationAsTask(string animationType, bool force = false)
         {
-            CatAnimationTypeAttribute attribute = SetAnimation(catAnimationType, force);
+            float duration = SetAnimation(animationType, force);
             
-            if(attribute == null)
-                return;
+            if (duration < 0) return;
             
-            await RX.DoValue(0f, attribute.AnimationLength, attribute.AnimationLength).ToUniTask();
+            await RX.DoValue(0f, duration, duration).ToUniTask();
         }
 
-        [Button] public void PlayAnimation(CatAnimationType catAnimationType, bool force = false)
+        public void PlayAnimation(string animationType, bool force = false)
         {
-            SetAnimation(catAnimationType, force);
+            SetAnimation(animationType, force);
         }
 
-        private CatAnimationTypeAttribute SetAnimation(CatAnimationType catAnimationType, bool force = false)
+        private float SetAnimation(string animationType, bool force = false)
         {
-            if(catAnimationType == _currentAnimationType && force == false)
-                return null;
+            if(animationType.Equals(_currentAnimationType) && force == false)
+                return -1f;
             
             if (_isDisabled)
             {
@@ -43,20 +43,14 @@ namespace InternalAssets.Codebase.Gameplay.Entities.Cats
                 _animator.enabled = true;
             }
 
-            _currentAnimationType = catAnimationType;
+            _currentAnimationType = animationType;
             
             _animator.StopPlayback();
-            _animator.CrossFadeInFixedTime(_currentAnimationType.ToString(), fixedTransitionDuration: 0.2f, 0 ,0);
+            _animator.CrossFadeInFixedTime(_currentAnimationType, fixedTransitionDuration: 0.2f, 0 ,0);
 
-            catAnimationType.TryGetAttribute(out CatAnimationTypeAttribute attribute);
-
-            if (attribute == null)
-                throw this.MissedAttribute<CatAnimationTypeAttribute>();
-
-            return attribute;
+            return CatAnimationDurations.GetDuration(_currentAnimationType);
         }
 
-        [Button]
         public void StopAnimator()
         {
             _isDisabled = true;

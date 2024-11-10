@@ -19,7 +19,7 @@ namespace InternalAssets.Codebase.Gameplay.Entities.Cats.CatBehavior
                 if (Activator.CreateInstance(targetBehaviorType, args: enemyBehavior.Behavior) is not IBehavior behavior)
                     throw new ArgumentException("Разраб где-то обосрался...");
 
-                AppendBehavior(behavior, entity.Components);
+                AppendBehavior(behavior, entity);
             }
         }
         

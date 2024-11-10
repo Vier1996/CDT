@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace InternalAssets.Codebase.Library.MonoEntity.Entities
 {
-    public abstract class Entity : MonoBehaviour, IEntity
+    public abstract class Entity : SerializedMonoBehaviour, IEntity
     {
         [BoxGroup("Entity"), SerializeField] private bool _selfActivated = false;
         

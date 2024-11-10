@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using InternalAssets.Codebase.Library.MonoEntity.Entities;
 using InternalAssets.Codebase.Library.MonoEntity.EntityComponent;
 using UniRx;
 
@@ -16,10 +17,10 @@ namespace InternalAssets.Codebase.Library.Behavior
         
         public virtual void Dispose() => _currentBehaviorState?.Dispose();
 
-        public void AppendBehavior(IBehavior behavior, EntityComponents components = null)
+        public void AppendBehavior(IBehavior behavior, Entity entity)
         {
             if(_behaviorStates.TryAdd(behavior.BehaviorId, behavior))
-                _behaviorStates.Last().Value.Construct(this, components);
+                _behaviorStates.Last().Value.Construct(this, entity);
         }
 
         public void ClearMachine()

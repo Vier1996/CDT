@@ -1,4 +1,5 @@
 ﻿using System;
+using InternalAssets.Codebase.Gameplay.Entities.Base;
 using InternalAssets.Codebase.Gameplay.Entities.Cats.CatBehavior;
 using InternalAssets.Codebase.Gameplay.Entities.Cats.Services;
 using InternalAssets.Codebase.Gameplay.Navigation;
@@ -20,10 +21,10 @@ namespace InternalAssets.Codebase.Gameplay.Entities.Cats
         
         public override EntityComponents Declare(Entity abstractEntity)
         {
-            Add(abstractEntity);
+            base.Declare(abstractEntity);
             
             Add(typeof(IEntityStatsCollector), _statsCollectorMono.Bootstrap());
-            Add(_catAnimator);
+            Add(typeof(IEntityAnimator), _catAnimator);
             Add(_translateComponent);
             Add(_catModelPresenter);
             

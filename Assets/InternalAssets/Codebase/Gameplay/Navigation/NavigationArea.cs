@@ -52,7 +52,7 @@ namespace InternalAssets.Codebase.Gameplay.Navigation
             return default;
         }
 
-        public Vector3 GetAvailablePoint(Vector3 boxSize, float spawnOffset, bool checkVisible)
+        public Vector3 GetAvailablePoint(Vector3 inputPoint, float spawnOffset, bool checkVisible)
         {
             if (_selfTransform == null)
                 _selfTransform = transform;
@@ -61,10 +61,8 @@ namespace InternalAssets.Codebase.Gameplay.Navigation
 
             while (maxIterationCount >= 0)
             {
-                Vector3 possiblePoint = GetRandomPosition();
-
-                if (IsPointClear(possiblePoint, _selfTransform.position, boxSize) && (IsPointOffscreen(possiblePoint, spawnOffset, checkVisible)))
-                    return possiblePoint;
+                if (NavMesh.SamplePosition(inputPoint, out NavMeshHit hit, 2f, 1))
+                    return hit.position;
 
                 maxIterationCount--;
             }

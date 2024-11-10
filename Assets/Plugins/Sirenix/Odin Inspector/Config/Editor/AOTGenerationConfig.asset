@@ -16,22 +16,38 @@ MonoBehaviour:
   deleteDllAfterBuilds: 1
   AutomateForAllAOTPlatforms: 1
   automateForPlatforms: 0900000014000000
-  lastScan: 638571115159796843
+  lastScan: 638668815683320430
   supportSerializedTypes:
-  - TypeName: System.Boolean, mscorlib
-    IsCustom: 0
-    Emit: 1
-  - TypeName: InternalAssets.Codebase.Gameplay.Entities.Cats.CatBehavior.BehaviorTypes.CatIdleBehavior,
+  - TypeName: InternalAssets.Codebase.Gameplay.Entities.Cats.CatBehavior.BehaviorTypes.CatCompositeBehavior,
       Assembly-CSharp
     IsCustom: 0
     Emit: 1
-  - TypeName: InternalAssets.Codebase.Library.Behavior.IBehavior, Assembly-CSharp
+  - TypeName: InternalAssets.Codebase.Gameplay.CompositeOperations.ICompositeOperation,
+      Assembly-CSharp
     IsCustom: 0
     Emit: 1
-  - TypeName: System.Collections.Generic.List`1[[InternalAssets.Codebase.Library.Behavior.ScriptableBehavior,
+  - TypeName: System.Collections.Generic.List`1[[InternalAssets.Codebase.Gameplay.CompositeOperations.ICompositeOperation,
       Assembly-CSharp]], mscorlib
     IsCustom: 0
     Emit: 1
-  - TypeName: InternalAssets.Codebase.Library.Behavior.ScriptableBehavior, Assembly-CSharp
+  - TypeName: InternalAssets.Codebase.Gameplay.CompositeOperations.Variations.PlayAnimationOperation,
+      Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: InternalAssets.Codebase.Gameplay.CompositeOperations.Variations.PlayLoopedAnimationOperation,
+      Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: InternalAssets.Codebase.Gameplay.CompositeOperations.Variations.PlayNonAwaitableAnimationOperation,
+      Assembly-CSharp
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.String, mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: System.Boolean, mscorlib
+    IsCustom: 0
+    Emit: 1
+  - TypeName: InternalAssets.Codebase.Library.Behavior.IBehavior, Assembly-CSharp
     IsCustom: 0
     Emit: 1

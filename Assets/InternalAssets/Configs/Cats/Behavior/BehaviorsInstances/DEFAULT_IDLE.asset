@@ -23,7 +23,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: <Behavior>k__BackingField
       Entry: 7
-      Data: 0|InternalAssets.Codebase.Gameplay.Entities.Cats.CatCompositeBehavior,
+      Data: 0|InternalAssets.Codebase.Gameplay.Entities.Cats.CatBehavior.BehaviorTypes.CatCompositeBehavior,
         Assembly-CSharp
     - Name: <BehaviorId>k__BackingField
       Entry: 1
@@ -33,18 +33,18 @@ MonoBehaviour:
       Data: true
     - Name: <BehaviorOperations>k__BackingField
       Entry: 7
-      Data: 1|System.Collections.Generic.List`1[[InternalAssets.Codebase.Gameplay.Entities.Cats.ICompositeBehaviorOperation,
+      Data: 1|System.Collections.Generic.List`1[[InternalAssets.Codebase.Gameplay.CompositeOperations.ICompositeOperation,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 2|InternalAssets.Codebase.Gameplay.Entities.Cats.PlayAnimationOperation,
+      Data: 2|InternalAssets.Codebase.Gameplay.CompositeOperations.Variations.PlayLoopedAnimationOperation,
         Assembly-CSharp
     - Name: _animationType
-      Entry: 3
-      Data: 40
+      Entry: 1
+      Data: idle_base
     - Name: 
       Entry: 8
       Data: 

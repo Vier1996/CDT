@@ -23,6 +23,4 @@ MonoBehaviour:
     SerializationNodes: []
   <Behaviors>k__BackingField:
   - {fileID: 11400000, guid: d336e0f572a0844d0a8a67f9da304c08, type: 2}
-  - {fileID: 11400000, guid: 8ff68927d906a4043ba15b622f346cc3, type: 2}
-  - {fileID: 11400000, guid: a6ae37dc535894eb8a3b2d8f4fae76e9, type: 2}
   - {fileID: 11400000, guid: 4b886046c6d0adc468e51161b2d54924, type: 2}
