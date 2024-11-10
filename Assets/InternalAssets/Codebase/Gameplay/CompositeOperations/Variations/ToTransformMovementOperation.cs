@@ -26,7 +26,7 @@ namespace InternalAssets.Codebase.Gameplay.CompositeOperations.Variations
         {
             if (_navigationService.TryGetPoint(_pointTransform.position, out Vector3 point) == false)
                 return;
-            
+             
             if (entity.Components.TryGetAbstractComponent(out _translateComponent) == false)
                 throw entity.MissedComponent(_translateComponent.GetType());
 
