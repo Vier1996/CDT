@@ -9,6 +9,6 @@ namespace InternalAssets.Codebase.Gameplay.CompositeOperations
         public virtual void Construct() { }
         
         public UniTask Execute(Entity entity, CancellationToken cancellationToken);
-        public void Terminate();
+        public virtual void Terminate() { }
     }
 }

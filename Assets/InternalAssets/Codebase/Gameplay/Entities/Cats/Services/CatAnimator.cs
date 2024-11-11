@@ -1,11 +1,7 @@
-using System;
-using System.Threading;
 using Cysharp.Threading.Tasks;
 using InternalAssets.Codebase.Gameplay.Entities.Base;
 using InternalAssets.Codebase.Gameplay.Entities.Cats.Enums;
-using InternalAssets.Codebase.Library.ExceptionExtension;
 using InternalAssets.Codebase.Library.Extension;
-using InternalAssets.Codebase.Library.Extension.Reflection;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -55,6 +51,11 @@ namespace InternalAssets.Codebase.Gameplay.Entities.Cats
         {
             _isDisabled = true;
             _animator.enabled = false;
+        }
+
+        [Button] private void SetAnimationDebug(CatAnimationType animationType)
+        {
+            PlayAnimation(animationType.ToString(), true);
         }
     }
 }

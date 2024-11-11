@@ -10,6 +10,8 @@ namespace InternalAssets.Codebase.Gameplay.Navigation
 {
     public class TranslateComponent : MonoBehaviour
     {
+        public NavMeshAgent Agent => _agentOfEnenty;
+        
         [SerializeField] private NavMeshAgent _agentOfEnenty;
 
         private bool _isBusy = false;

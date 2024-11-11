@@ -192,6 +192,7 @@ namespace InternalAssets.Codebase.Gameplay.Entities.Cats.Enums
             { "rest_sleep_idle", 2.667f },
             { "rest_sleep_to", 2.667f },
             { "custom_walk_forward", 0.8f },
+            { "custom_jump", 1.1f },
         };
 
         public static float GetDuration(string animationName) => _animationDurations[animationName];

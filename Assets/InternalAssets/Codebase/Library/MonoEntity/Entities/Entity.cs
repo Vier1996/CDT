@@ -65,7 +65,7 @@ namespace InternalAssets.Codebase.Library.MonoEntity.Entities
             _signalBusService?.Fire(new EntityDestroyedSignal(this));
         }
 
-        [Button("Kill entity")]
+        [Button("Kill entity"), PropertyOrder(-1)]
         private void OnDestroy() => Dispose();
     }
 }

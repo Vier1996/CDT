@@ -1,4 +1,7 @@
-﻿using DG.Tweening;
+﻿using System.Threading;
+using Cysharp.Threading.Tasks;
+using DG.Tweening;
+using InternalAssets.Codebase.Library.Async;
 using UnityEngine;
 
 namespace InternalAssets.Codebase.Library.Extension
@@ -24,6 +27,20 @@ namespace InternalAssets.Codebase.Library.Extension
             material.DOPause();
             material.DOKill();
             return material;
+        }
+        
+        public static UniTask ToUniTask(this DG.Tweening.Tween tween, ICancellationPair cancellationPair = null) => 
+            tween.ToUniTask(cancellationPair?.Token ?? default);
+
+        public static UniTask ToUniTask(this DG.Tweening.Tween tween, CancellationToken token = default)
+        {
+            UniTask task = tween
+                .AsyncWaitForCompletion()
+                .AsUniTask();
+            
+            return token != default 
+                ? task.AttachExternalCancellation(token)
+                : task;
         }
     }
 }

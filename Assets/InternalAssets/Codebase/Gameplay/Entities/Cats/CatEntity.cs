@@ -1,4 +1,5 @@
-﻿using InternalAssets.Codebase.Gameplay.Entities.Cats.CatBehavior;
+﻿using DG.Tweening;
+using InternalAssets.Codebase.Gameplay.Entities.Cats.CatBehavior;
 using InternalAssets.Codebase.Gameplay.Entities.Cats.CatStats;
 using InternalAssets.Codebase.Gameplay.Workers.Variations;
 using InternalAssets.Codebase.Library.Behavior;
